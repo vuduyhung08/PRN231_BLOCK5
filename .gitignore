@@ -61,6 +61,8 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+*.csproj.nuget.dgspec.json
+*.csproj.nuget.g.props
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
