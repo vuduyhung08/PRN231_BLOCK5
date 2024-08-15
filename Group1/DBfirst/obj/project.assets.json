@@ -2976,25 +2976,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< Updated upstream
-    "C:\\Users\\yetvv.piacom\\.nuget\\packages\\": {}
-=======
     "C:\\Users\\asus\\.nuget\\packages\\": {}
->>>>>>> Stashed changes
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< Updated upstream
-      "projectUniqueName": "E:\\FPT\\BLOCK5PRN231\\Group1\\DBfirst\\DBfirst.csproj",
-      "projectName": "DBfirst",
-      "projectPath": "E:\\FPT\\BLOCK5PRN231\\Group1\\DBfirst\\DBfirst.csproj",
-      "packagesPath": "C:\\Users\\yetvv.piacom\\.nuget\\packages\\",
-      "outputPath": "E:\\FPT\\BLOCK5PRN231\\Group1\\DBfirst\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\yetvv.piacom\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
       "projectUniqueName": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
       "projectName": "DBfirst",
       "projectPath": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
@@ -3003,7 +2989,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> Stashed changes
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3023,6 +3008,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3085,11 +3075,7 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< Updated upstream
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
-=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
->>>>>>> Stashed changes
       }
     }
   }

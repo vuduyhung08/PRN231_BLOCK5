@@ -21,5 +21,11 @@ public class MappingProfile : Profile
 
         // Ánh xạ từ StudentDetail đến StudentDetailDTO
         CreateMap<StudentDetail, StudentDetailDTO>();
+
+        // Ánh xạ từ EvaluationDTO đến Evaluation
+        CreateMap<EvaluationDTO, Evaluation>();
+
+        // Ánh xạ từ Evaluation đến EvaluationDTO
+        CreateMap<Evaluation, EvaluationDTO>();
     }
 }
