@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "E:\\FPT\\BLOCK5PRN231\\CLONE\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\yetvv.piacom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "E:\\FPT_Study\\Ky_8\\PRN231_B5\\Project\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {}
+  },
+  "projects": {
+    "E:\\FPT_Study\\Ky_8\\PRN231_B5\\Project\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\FPT_Study\\Ky_8\\PRN231_B5\\Project\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
+        "projectName": "DBfirst",
+        "projectPath": "E:\\FPT_Study\\Ky_8\\PRN231_B5\\Project\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
+        "packagesPath": "C:\\Users\\DUNG HOANG PC\\.nuget\\packages\\",
+        "outputPath": "E:\\FPT_Study\\Ky_8\\PRN231_B5\\Project\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\DUNG HOANG PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> d1b82aeeaa3576b51a9ddf83f99c4d53534e94d2
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +57,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.32, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.32, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.33, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.32, )"
@@ -64,9 +93,25 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[111.4.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.6.2, )"
             }
           },
           "imports": [
@@ -88,7 +133,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+>>>>>>> d1b82aeeaa3576b51a9ddf83f99c4d53534e94d2
         }
       }
     }
