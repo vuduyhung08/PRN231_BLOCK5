@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DBfirst.Migrations
 {
     [DbContext(typeof(Project_B5DBContext))]
-    [Migration("20240819042012_StudentForeignKey")]
-    partial class StudentForeignKey
+    [Migration("20240819125831_InitialDB")]
+    partial class InitialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -416,6 +416,9 @@ namespace DBfirst.Migrations
             modelBuilder.Entity("DBfirst.Models.User", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<bool>("ActiveCode")
+                        .HasColumnType("bit");
 
                     b.ToTable("AspNetUsers", (string)null);
 
