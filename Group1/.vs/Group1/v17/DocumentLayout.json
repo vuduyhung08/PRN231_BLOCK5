@@ -3,24 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\font_end\\wwwroot\\studentpage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|solutionrelative:font_end\\wwwroot\\studentpage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\font_end\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|solutionrelative:font_end\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\dbfirst.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\dbfirst.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\font_end\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|solutionrelative:font_end\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\font_end\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|solutionrelative:font_end\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\font_end\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|solutionrelative:font_end\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\font_end\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|solutionrelative:font_end\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\font_end\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B75FA63-73C5-4BB6-B54F-6D89D74348E4}|Font_End\\Font_End.csproj|solutionrelative:font_end\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\dtos\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\dtos\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,66 +74,162 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Helpers\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "DBfirst\\Helpers\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Helpers\\MappingProfile.cs",
-              "RelativeToolTip": "DBfirst\\Helpers\\MappingProfile.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-15T11:21:33.121Z",
-              "EditorCaption": ""
+              "DocumentIndex": 6,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Font_End\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Font_End\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-20T02:07:48.755Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StudentController.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentController.cs",
-              "RelativeDocumentMoniker": "DBfirst\\Controllers\\StudentController.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentController.cs",
-              "RelativeToolTip": "DBfirst\\Controllers\\StudentController.cs",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAwwFgAAAArAAAA",
+              "DocumentIndex": 7,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Font_End\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Font_End\\Models\\ErrorViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-15T11:21:16.388Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-20T02:07:43.948Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Font_End\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Font_End\\Views\\_ViewImports.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-20T02:07:28.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Font_End\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Font_End\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-20T02:06:45.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\appsettings.json",
               "RelativeDocumentMoniker": "DBfirst\\appsettings.json",
               "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\appsettings.json",
               "RelativeToolTip": "DBfirst\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-15T04:25:13.179Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DBfirst.csproj",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
-              "RelativeDocumentMoniker": "DBfirst\\DBfirst.csproj",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
-              "RelativeToolTip": "DBfirst\\DBfirst.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-15T04:21:51.975Z",
+              "WhenOpened": "2024-08-19T23:53:11.732Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Font_End\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Font_End\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T23:51:26.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Models\\Student.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\Student.cs",
+              "RelativeToolTip": "DBfirst\\Models\\Student.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwBEAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T02:54:09.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Program.cs",
               "RelativeDocumentMoniker": "DBfirst\\Program.cs",
               "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Program.cs",
               "RelativeToolTip": "DBfirst\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA0AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-15T03:39:21.573Z",
+              "WhenOpened": "2024-08-19T02:49:16.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StudentDTO.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DTOs\\StudentDTO.cs",
+              "RelativeDocumentMoniker": "DBfirst\\DTOs\\StudentDTO.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DTOs\\StudentDTO.cs",
+              "RelativeToolTip": "DBfirst\\DTOs\\StudentDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T09:18:07.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Helpers\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Helpers\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Helpers\\MappingProfile.cs",
+              "RelativeToolTip": "DBfirst\\Helpers\\MappingProfile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T09:17:55.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Program.cs",
+              "RelativeDocumentMoniker": "Font_End\\Program.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\Program.cs",
+              "RelativeToolTip": "Font_End\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T06:07:02.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "DBfirst\\Controllers\\StudentController.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAgwF4AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T12:58:48.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StudentPage.html",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\wwwroot\\StudentPage.html",
+              "RelativeDocumentMoniker": "Font_End\\wwwroot\\StudentPage.html",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\Font_End\\wwwroot\\StudentPage.html",
+              "RelativeToolTip": "Font_End\\wwwroot\\StudentPage.html",
+              "ViewState": "AQIAAKoAAAAAAAAAAAAAAIgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-08-16T12:49:58.646Z",
               "EditorCaption": ""
             }
           ]
