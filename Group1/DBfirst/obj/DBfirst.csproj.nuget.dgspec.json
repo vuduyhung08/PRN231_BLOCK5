@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\FPT_Study\\Ky_8\\PRN231_B5\\Project\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {}
+    "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {}
   },
   "projects": {
-    "E:\\FPT_Study\\Ky_8\\PRN231_B5\\Project\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {
+    "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FPT_Study\\Ky_8\\PRN231_B5\\Project\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
         "projectName": "DBfirst",
-        "projectPath": "E:\\FPT_Study\\Ky_8\\PRN231_B5\\Project\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
-        "packagesPath": "C:\\Users\\DUNG HOANG PC\\.nuget\\packages\\",
-        "outputPath": "E:\\FPT_Study\\Ky_8\\PRN231_B5\\Project\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\obj\\",
+        "projectPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DUNG HOANG PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,6 +45,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[5.8.9, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.7.1.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.32, )"
@@ -121,7 +129,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

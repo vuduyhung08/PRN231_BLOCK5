@@ -25,11 +25,18 @@ builder.Services.AddDbContext<Project_B5DBContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("DB"));
 });
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy => policy.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+});
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
 builder.Services.Configure<EmailConfig>(builder.Configuration.GetSection("MailSettings"));
 builder.Services.AddScoped<IEmailHelper, EmailHelper>();
 builder.Services.AddScoped<IEmailTemplateReader, EmailTemplateReader>();
+builder.Services.AddSingleton<EmailService>();
 
 var key = Encoding.ASCII.GetBytes(builder.Configuration.GetSection("JwtConfig:Secret").Value);
 
@@ -73,6 +80,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();
+app.UseCors("AllowAll");
 
 app.MapControllers();
 
