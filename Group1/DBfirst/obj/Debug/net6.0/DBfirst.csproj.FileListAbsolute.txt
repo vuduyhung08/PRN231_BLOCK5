@@ -248,3 +248,5 @@ E:\FPT_Study\Ky_8\PRN231_B5\Project\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debu
 E:\FPT_Study\Ky_8\PRN231_B5\Project\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.genruntimeconfig.cache
 E:\FPT_Study\Ky_8\PRN231_B5\Project\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\ref\DBfirst.dll
 E:\FPT_Study\Ky_8\PRN231_B5\Project\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\RestSharp.dll
+E:\FPT_Study\Ky_8\PRN231_B5\Project\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.RazorAssemblyInfo.cache
+E:\FPT_Study\Ky_8\PRN231_B5\Project\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.RazorAssemblyInfo.cs

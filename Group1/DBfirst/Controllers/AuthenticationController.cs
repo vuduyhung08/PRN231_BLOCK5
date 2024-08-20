@@ -16,30 +16,40 @@ using RestSharp.Authenticators;
 using DBfirst.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Http.Extensions;
+using DBfirst.Helper;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Net;
+using DBfirst.Services;
 
 namespace DBfirst.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthenticationController : ControllerBase
+    public class AuthenticationController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IConfiguration _configuration;
         private readonly TokenValidationParameters _tokenValidationParameters;
         private readonly Project_B5DBContext _context;
+        private readonly IEmailHelper _emailHelper;
+        private readonly IEmailTemplateReader _emailTemplateReader;
         //private readonly JwtConfig _jwtConfig;
 
         public AuthenticationController(UserManager<IdentityUser> userManager, IConfiguration configuration,
-            Project_B5DBContext context, TokenValidationParameters tokenValidationParameters)
+            Project_B5DBContext context, TokenValidationParameters tokenValidationParameters, IEmailHelper emailHelper,
+            IEmailTemplateReader emailTemplateReader)
         {
             _userManager = userManager;
             _configuration = configuration;
             _context = context;
             _tokenValidationParameters = tokenValidationParameters;
+            _emailHelper = emailHelper;
+            _emailTemplateReader = emailTemplateReader;
             //_jwtConfig = jwtConfig;
         }
         [HttpPost("Register")]
-        public async Task<IActionResult> Register([FromBody] UserRegistrationRequestDto requestDto)
+        public async Task<IActionResult> Register([FromBody] UserRegistrationRequestDto requestDto, CancellationToken cancellationToken)
         {
             if (ModelState.IsValid)
             {
@@ -61,24 +71,41 @@ namespace DBfirst.Controllers
                     UserName = requestDto.Email,
                     EmailConfirmed = false
                 };
+
                 var isCreated = await _userManager.CreateAsync(newUser, requestDto.Password);
                 if (isCreated.Succeeded)
                 {
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
-                    var emailBody = "Please confirm your email address <a href=\"#URL\">Click here </a>";
+                    /*//var emailBody = "Please confirm your email address <a href=\"#URL\">Click here </a>";
+                    var scheme = Request.Scheme;
+                    *//*var callBackUrl = Request.Scheme + "://" + Request.Host + Url.Action("ConfirmEmail", "Authentication",
+                        new { userId = newUser.Id, code = code });*//*
+                    var callbackUrl = Url.Action("ConfirmEmail", "Authentication", new { userId = newUser.Id, code = code }, protocol: scheme);
 
-                    var callBackUrl = Request.Scheme + "://" + Request.Host + Url.Action("ConfirmEmail", "Authentication",
-                        new { userId = newUser.Id, code = code });
+                    if (!string.IsNullOrEmpty(callbackUrl))
+                    {
+                        var result = SendMail.SendEmail(newUser.Email, "Confirm your account",
+                            "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>", "");
 
-                    var body = emailBody.Replace("#URL",
-                        System.Text.Encodings.Web.HtmlEncoder.Default.Encode(callBackUrl));
+                        if (result)
+                            return View("NotificationEmailConfirm");
+                    }
 
-                    var result = sendEmail(body, newUser.Email);
+                    return Ok("Please request an email verification link");*/
 
-                    if (result)
-                        return Ok("Please verify your email through the verification email we have sent");
+                    string url = Url.Action("ConfirmEmail", "Authentication", new { userId = newUser.Id, code = code }, Request.Scheme);
 
-                    return Ok("Please request an email verification link");
+                    string body = await _emailTemplateReader.GetTemplate("Templates\\ConfirmEmail.html");
+
+                    body = string.Format(body, newUser.UserName, url);
+
+                    _emailHelper.SendEmailAsync(new EmailRequest
+                    {
+                        To = newUser.Email,
+                        Subject = "Confirm Email for Register",
+                        Content = body
+                    });
+
 
                     /*var token = GenerateJwtToken(newUser);
                     return Ok(new AuthResult()
@@ -102,7 +129,7 @@ namespace DBfirst.Controllers
             return BadRequest();
         }
 
-        [Route("ConfirmEmail")]
+        /*[Route("ConfirmEmail")]
         [HttpGet]
         public async Task<IActionResult> ConfirmEmail(string userId, string code)
         {
@@ -134,6 +161,28 @@ namespace DBfirst.Controllers
             var result = await _userManager.ConfirmEmailAsync(user, code);
             var status = result.Succeeded ? "Thank you for confirming your email" : "Your email is not confirmed, try again";
             return Ok(status);
+        }*/
+
+        [HttpGet("confirm-email")]
+        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if(user == null)
+            {
+                return BadRequest("Account is exist in the system");
+            }
+
+            if(user.EmailConfirmed)
+            {
+                return Ok("The email has already been confirmed");
+            }
+            var identityResult = await _userManager.ConfirmEmailAsync(user, code);
+
+            if(identityResult.Succeeded)
+            {
+                return Ok("Your account has been activated");
+            }
+            return BadRequest("Confirm email failed");
         }
 
         [Route("Login")]
@@ -165,8 +214,9 @@ namespace DBfirst.Controllers
                         },
                         Result = false
                     });
-                }
-
+                }  
+                
+                
                 var isCorrect = await _userManager.CheckPasswordAsync(existingUser, loginRequest.Password);
                 if (!isCorrect)
                 {
@@ -402,7 +452,7 @@ namespace DBfirst.Controllers
             var response = client.Execute(request);
             return response.IsSuccessful;
         }*/
-        private bool sendEmail(string body, string email)
+        /*private bool sendEmail(string body, string email)
         {
             var client = new RestClient("https://api.mailgun.net/v3/sandboxbad99ec661494b92b9f3216339249870.mailgun.org/messages");
 
@@ -422,7 +472,7 @@ namespace DBfirst.Controllers
             // Execute the request
             var response = client.Execute(request);
             return response.IsSuccessful;
-        }
+        }*/
 
         private string RandomStringGeneration(int length)
         {
@@ -430,6 +480,5 @@ namespace DBfirst.Controllers
             var chars = "ABCDEFGHIJKLNMOPQRSTUVWXYZ1234567890abcdefghijklnmopqrstuvwxyz_";
             return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
         }
-
     }
 }
