@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace DBfirst.Models
 {
@@ -20,7 +21,8 @@ namespace DBfirst.Models
         public virtual User User { get; set; }
         public virtual ICollection<StudentSubject> StudentSubjects { get; set; }
 
-        public virtual ICollection<Evaluation> Evaluations { get; set; }
+        [JsonIgnore]
+        public ICollection<Evaluation> Evaluations { get; set; } = new List<Evaluation>();
         public virtual ICollection<StudentDetail> StudentDetails { get; set; }
 
     }

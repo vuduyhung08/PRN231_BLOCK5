@@ -22,10 +22,40 @@ namespace DBfirst.Controllers
         // GET: api/Evaluations
         [HttpGet]
         [EnableQuery]
-        public IQueryable<Evaluation> Get()
+        public IQueryable<EvaluationDTO> Get()
         {
-            return _context.Evaluations.AsQueryable();
+            return _context.Evaluations
+                           .Include(e => e.Student)
+                           .Select(e => new EvaluationDTO
+                           {
+                               EvaluationId = e.EvaluationId,
+                               Grade = e.Grade,
+                               AdditionExplanation = e.AdditionExplanation,
+                               Student = new StudentDTO
+                               {
+                                   StudentId = e.Student.StudentId,
+                                   Name = e.Student.Name
+                               }
+                           })
+                           .AsQueryable();
         }
+
+
+        public class StudentDTO
+        {
+            public int StudentId { get; set; }
+            public string Name { get; set; }
+        }
+
+        public class EvaluationDTO
+        {
+            public int EvaluationId { get; set; }
+            public int Grade { get; set; }
+            public string AdditionExplanation { get; set; }
+            public StudentDTO Student { get; set; }
+        }
+
+
 
         // GET: api/Evaluations/5
         [HttpGet("{id}")]
@@ -64,6 +94,7 @@ namespace DBfirst.Controllers
         }
         public class EvaluationPostDTO
         {
+            public int EvaluationId { get; set; }
             public int Grade { get; set; }
             public string AdditionExplanation { get; set; }
             public int StudentId { get; set; }

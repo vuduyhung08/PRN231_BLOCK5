@@ -10,15 +10,23 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 IEdmModel GetEdmModel()
 {
-    var odataBuilder = new ODataConventionModelBuilder();
-    odataBuilder.EntitySet<Evaluation>("Evaluations");
-    return odataBuilder.GetEdmModel();
+    var builder = new ODataConventionModelBuilder();
+    builder.EntitySet<Teacher>("Teachers");
+    builder.EntitySet<Subject>("Subjects");
+
+    // Register the action
+    var action = builder.EntityType<Teacher>().Action("ChangeSubject");
+    action.Parameter<int>("subjectId");
+    action.Returns<IActionResult>();
+
+    return builder.GetEdmModel();
 }
 
 builder.Services.AddControllers()
@@ -28,6 +36,7 @@ builder.Services.AddControllers()
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 builder.Services.AddDbContext<Project_B5DBContext>(option =>
 {
@@ -72,6 +81,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseHttpsRedirection();
 

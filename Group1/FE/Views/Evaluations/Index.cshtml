@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DBfirst.Models.Evaluation>
+
+@{
+    ViewData["Title"] = "Evaluations";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p class="mt-5" style="text-align: end">
+    <a asp-action="Create">Enter evaluation</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Evaluation ID</th>
+            <th>Grade</th>
+            <th>Addition Explanation</th>
+            <th>Student ID</th>
+            <th>Student Name</th> <!-- New column -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EvaluationId</td>
+                <td>@item.Grade</td>
+                <td>@item.AdditionExplanation</td>
+                <td>@item.Student?.StudentId</td>
+                <td>@item.Student?.Name</td> <!-- New column for Student Name -->
+            </tr>
+        }
+    </tbody>
+</table>
