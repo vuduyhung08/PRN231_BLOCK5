@@ -1,20 +1,31 @@
+using Microsoft.AspNetCore.OData;
+using Microsoft.OData.Edm;
+using Microsoft.AspNetCore.OData.Routing.Conventions;
+using Microsoft.OData.ModelBuilder;
 using DBfirst.Configurations;
+using DBfirst.DataAccess;
 using DBfirst.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using DBfirst.DataAccess;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+IEdmModel GetEdmModel()
+{
+    var odataBuilder = new ODataConventionModelBuilder();
+    odataBuilder.EntitySet<Evaluation>("Evaluations");
+    return odataBuilder.GetEdmModel();
+}
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers()
+    .AddOData(options => options.Select().Filter().OrderBy().Expand().SetMaxTop(100)
+    .AddRouteComponents("odata", GetEdmModel())
+    .Count());
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -27,7 +38,7 @@ builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfi
 
 var key = Encoding.ASCII.GetBytes(builder.Configuration.GetSection("JwtConfig:Secret").Value);
 
-var tokenValidationParameter  = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+var tokenValidationParameter = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
 {
     ValidateIssuerSigningKey = true,
     IssuerSigningKey = new SymmetricSecurityKey(key),
@@ -66,7 +77,6 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
 
 app.MapControllers();
 

@@ -339,3 +339,9 @@ E:\FPT\BLOCK5PRN231\CLONE\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\r
 E:\FPT\BLOCK5PRN231\CLONE\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.pdb
 E:\FPT\BLOCK5PRN231\CLONE\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.genruntimeconfig.cache
 E:\FPT\BLOCK5PRN231\CLONE\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\ref\DBfirst.dll
+E:\FPT\BLOCK5PRN231\CLONE\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.AspNetCore.OData.dll
+E:\FPT\BLOCK5PRN231\CLONE\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\FPT\BLOCK5PRN231\CLONE\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.OData.Core.dll
+E:\FPT\BLOCK5PRN231\CLONE\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.OData.Edm.dll
+E:\FPT\BLOCK5PRN231\CLONE\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.OData.ModelBuilder.dll
+E:\FPT\BLOCK5PRN231\CLONE\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.Spatial.dll
