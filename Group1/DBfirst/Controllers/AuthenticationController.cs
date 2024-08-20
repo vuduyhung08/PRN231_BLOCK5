@@ -81,7 +81,8 @@ namespace DBfirst.Controllers
                     Email = request.Email,
                     UserName = request.Email,
                     EmailConfirmed = false,
-                    ActiveCode = CreateRandomToken()
+                    ActiveCode = CreateRandomToken(),
+                    IsActive = true
                 };
 
                 var isCreated = await _userManager.CreateAsync(newUser, request.Password);

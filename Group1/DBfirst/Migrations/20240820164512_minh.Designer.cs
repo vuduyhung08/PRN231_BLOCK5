@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DBfirst.Migrations
 {
     [DbContext(typeof(Project_B5DBContext))]
-    [Migration("20240820065405_Update table user")]
-    partial class Updatetableuser
+    [Migration("20240820164512_minh")]
+    partial class minh
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -420,6 +420,9 @@ namespace DBfirst.Migrations
                     b.Property<string>("ActiveCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
 
                     b.ToTable("AspNetUsers", (string)null);
 

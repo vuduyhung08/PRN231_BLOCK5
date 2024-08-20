@@ -419,6 +419,9 @@ namespace DBfirst.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
+
                     b.ToTable("AspNetUsers", (string)null);
 
                     b.HasDiscriminator().HasValue("User");
