@@ -23,6 +23,7 @@ namespace DBfirst.DataAccess
         public virtual DbSet<Subject> Subjects { get; set; } = null!;
         public virtual DbSet<Teacher> Teachers { get; set; } = null!;
         public virtual DbSet<StudentSubject> StudentSubjects { get; set; } = null!;
+        public virtual DbSet<User> User { get; set; } = null!;
         public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

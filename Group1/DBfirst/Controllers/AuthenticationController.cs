@@ -21,6 +21,9 @@ using DBfirst.Helper;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Net;
 using DBfirst.Services;
+using Org.BouncyCastle.Asn1.Ocsp;
+using DBfirst.Models;
+using System.Security.Cryptography;
 
 namespace DBfirst.Controllers
 {
@@ -34,11 +37,12 @@ namespace DBfirst.Controllers
         private readonly Project_B5DBContext _context;
         private readonly IEmailHelper _emailHelper;
         private readonly IEmailTemplateReader _emailTemplateReader;
+        private readonly EmailService _emailService;
         //private readonly JwtConfig _jwtConfig;
 
         public AuthenticationController(UserManager<IdentityUser> userManager, IConfiguration configuration,
             Project_B5DBContext context, TokenValidationParameters tokenValidationParameters, IEmailHelper emailHelper,
-            IEmailTemplateReader emailTemplateReader)
+            IEmailTemplateReader emailTemplateReader, EmailService emailService)
         {
             _userManager = userManager;
             _configuration = configuration;
@@ -46,14 +50,21 @@ namespace DBfirst.Controllers
             _tokenValidationParameters = tokenValidationParameters;
             _emailHelper = emailHelper;
             _emailTemplateReader = emailTemplateReader;
+            _emailService = emailService;
             //_jwtConfig = jwtConfig;
         }
+
+        private string CreateRandomToken()
+        {
+            return Convert.ToHexString(RandomNumberGenerator.GetBytes(3));
+        }
+
         [HttpPost("Register")]
-        public async Task<IActionResult> Register([FromBody] UserRegistrationRequestDto requestDto, CancellationToken cancellationToken)
+        public async Task<IActionResult> Register([FromBody] UserRegistrationRequestDto request)
         {
             if (ModelState.IsValid)
             {
-                var userExist = await _userManager.FindByEmailAsync(requestDto.Email);
+                var userExist = await _userManager.FindByEmailAsync(request.Email);
                 if (userExist != null)
                 {
                     return BadRequest(new AuthResult()
@@ -61,125 +72,56 @@ namespace DBfirst.Controllers
                         Result = false,
                         Errors = new List<string>
                         {
-                            "Email already exist"
+                            "An have account already exists associated with this email!"
                         }
                     });
                 }
-                var newUser = new IdentityUser()
+                var newUser = new User()
                 {
-                    Email = requestDto.Email,
-                    UserName = requestDto.Email,
-                    EmailConfirmed = false
+                    Email = request.Email,
+                    UserName = request.Email,
+                    EmailConfirmed = false,
+                    ActiveCode = CreateRandomToken()
                 };
 
-                var isCreated = await _userManager.CreateAsync(newUser, requestDto.Password);
+                var isCreated = await _userManager.CreateAsync(newUser, request.Password);
                 if (isCreated.Succeeded)
                 {
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
-                    /*//var emailBody = "Please confirm your email address <a href=\"#URL\">Click here </a>";
-                    var scheme = Request.Scheme;
-                    *//*var callBackUrl = Request.Scheme + "://" + Request.Host + Url.Action("ConfirmEmail", "Authentication",
-                        new { userId = newUser.Id, code = code });*//*
-                    var callbackUrl = Url.Action("ConfirmEmail", "Authentication", new { userId = newUser.Id, code = code }, protocol: scheme);
-
-                    if (!string.IsNullOrEmpty(callbackUrl))
-                    {
-                        var result = SendMail.SendEmail(newUser.Email, "Confirm your account",
-                            "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>", "");
-
-                        if (result)
-                            return View("NotificationEmailConfirm");
-                    }
-
-                    return Ok("Please request an email verification link");*/
-
-                    string url = Url.Action("ConfirmEmail", "Authentication", new { userId = newUser.Id, code = code }, Request.Scheme);
-
-                    string body = await _emailTemplateReader.GetTemplate("Templates\\ConfirmEmail.html");
-
-                    body = string.Format(body, newUser.UserName, url);
-
-                    _emailHelper.SendEmailAsync(new EmailRequest
-                    {
-                        To = newUser.Email,
-                        Subject = "Confirm Email for Register",
-                        Content = body
-                    });
-
-
-                    /*var token = GenerateJwtToken(newUser);
-                    return Ok(new AuthResult()
-                    {
-                        Result = true,
-                        Token = token
-                    });*/
+                    await _emailService.SendEmailAsync(newUser.Email, newUser.ActiveCode);
+                    return Ok("User created successfully!");
                 }
                 else
                 {
-                    // Log errors
                     var errorMessages = string.Join(", ", isCreated.Errors.Select(e => e.Description));
                     return BadRequest(new AuthResult()
                     {
                         Errors = new List<string> { $"Server error: {errorMessages}" },
                         Result = false
-                    });
-                    
+                    });                    
                 }
             }
             return BadRequest();
         }
 
-        /*[Route("ConfirmEmail")]
-        [HttpGet]
-        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        [HttpPost("Verify")]
+        public async Task<IActionResult> ConfirmEmail([FromBody] UserVerifyRequestDto request)
         {
-            if(userId == null || code == null)
-            {
-                return BadRequest(new AuthResult()
-                {
-                    Errors = new List<string>
-                    {
-                        "Invalid email confirmation url"
-                    }
-                });
-            }
-
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user == null)
-            {
-                return BadRequest(new AuthResult()
-                {
-                    Errors = new List<string>
-                    {
-                        "Invalid email parameters"
-                    }
-                });
-            }
-
-            code = Encoding.UTF8.GetString(Convert.FromBase64String(code));
-            var result = await _userManager.ConfirmEmailAsync(user, code);
-            var status = result.Succeeded ? "Thank you for confirming your email" : "Your email is not confirmed, try again";
-            return Ok(status);
-        }*/
-
-        [HttpGet("confirm-email")]
-        public async Task<IActionResult> ConfirmEmail(string userId, string code)
-        {
-            var user = await _userManager.FindByIdAsync(userId);
+            var user = _context.User.FirstOrDefault(s => s.Email == request.Email);
             if(user == null)
             {
-                return BadRequest("Account is exist in the system");
+                return BadRequest("Account isn't exist in the system");
             }
 
             if(user.EmailConfirmed)
             {
                 return Ok("The email has already been confirmed");
             }
-            var identityResult = await _userManager.ConfirmEmailAsync(user, code);
-
-            if(identityResult.Succeeded)
+            if (user.ActiveCode == request.Code)
             {
+                user.ActiveCode = null;
+                user.EmailConfirmed = true;
+                _context.User.Update(user);
+                _context.SaveChanges(); 
                 return Ok("Your account has been activated");
             }
             return BadRequest("Confirm email failed");

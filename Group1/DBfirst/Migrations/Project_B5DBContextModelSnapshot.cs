@@ -415,8 +415,9 @@ namespace DBfirst.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<bool>("ActiveCode")
-                        .HasColumnType("bit");
+                    b.Property<string>("ActiveCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.ToTable("AspNetUsers", (string)null);
 

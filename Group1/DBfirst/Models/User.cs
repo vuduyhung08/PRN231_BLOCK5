@@ -4,7 +4,7 @@ namespace DBfirst.Models
 {
     public class User : IdentityUser
     {
-        public bool ActiveCode { get; set; }
+        public string ActiveCode { get; set; }
         public ICollection<Teacher> Teachers { get; set; }
         public ICollection<Student> Students { get; set; }
     }
