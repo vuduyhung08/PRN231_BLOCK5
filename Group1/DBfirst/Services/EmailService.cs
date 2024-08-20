@@ -1,15 +1,24 @@
-﻿using DBfirst.Models;
+﻿using DBfirst.Helper;
+using DBfirst.Models;
 using MailKit.Net.Smtp;
+using Microsoft.Extensions.Options;
 using MimeKit;
 
 namespace DBfirst.Services
 {
     public class EmailService
     {
+        private readonly EmailConfig _mailSettings;
+
+        public EmailService(IOptions<EmailConfig> mailSettings)
+        {
+            _mailSettings = mailSettings.Value;
+        }
+
         public async Task SendEmailAsync(string toEmail, string activeCode)
         {
             var email = new MimeMessage();
-            email.From.Add(new MailboxAddress("StudentManagement", "TuanNAHE170268@fpt.edu.vn"));
+            email.From.Add(new MailboxAddress(_mailSettings.DisplayName, _mailSettings.DefaultSender));
             email.To.Add(new MailboxAddress("", toEmail));
             email.Subject = "Verification link";
 
@@ -35,8 +44,8 @@ namespace DBfirst.Services
 
             using (var smtp = new SmtpClient())
             {
-                smtp.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                smtp.Authenticate("TuanNAHE170268@fpt.edu.vn", "xndu xvuv slwt uibe");
+                smtp.Connect(_mailSettings.Provider, _mailSettings.Port, MailKit.Security.SecureSocketOptions.StartTls);
+                smtp.Authenticate(_mailSettings.DefaultSender, _mailSettings.Password);
 
                 await smtp.SendAsync(email);
                 smtp.Disconnect(true);
@@ -46,7 +55,7 @@ namespace DBfirst.Services
         public async Task SendGradeAsync(string toEmail, Student student)
         {
             var email = new MimeMessage();
-            email.From.Add(new MailboxAddress("StudentManagement", "TuanNAHE170268@fpt.edu.vn"));
+            email.From.Add(new MailboxAddress(_mailSettings.DisplayName, _mailSettings.DefaultSender));
             email.To.Add(new MailboxAddress("", toEmail));
             email.Subject = "Grade";
             var averageGrade = student.Evaluations.Any()
@@ -89,8 +98,8 @@ namespace DBfirst.Services
 
             using (var smtp = new SmtpClient())
             {
-                smtp.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                smtp.Authenticate("TuanNAHE170268@fpt.edu.vn", "xndu xvuv slwt uibe");
+                smtp.Connect(_mailSettings.Provider, _mailSettings.Port, MailKit.Security.SecureSocketOptions.StartTls);
+                smtp.Authenticate(_mailSettings.DefaultSender, _mailSettings.Password);
                 await smtp.SendAsync(email);
                 smtp.Disconnect(true);
             }
