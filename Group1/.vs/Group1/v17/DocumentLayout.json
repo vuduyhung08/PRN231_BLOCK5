@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\dbfirst\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\dbfirst\\helper\\emailhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\helper\\emailhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\views\\authentication\\verify.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\views\\authentication\\verify.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\views\\authentication\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\views\\authentication\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\wwwroot\\js\\register.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\wwwroot\\js\\register.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\wwwroot\\js\\verify.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\wwwroot\\js\\verify.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\dbfirst\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,66 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "DBfirst\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "DBfirst\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AQIAAGoAAAAAAAAAAAA5wHkAAAArAAAA",
+              "Title": "EmailHelper.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Helper\\EmailHelper.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Helper\\EmailHelper.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Helper\\EmailHelper.cs",
+              "RelativeToolTip": "DBfirst\\Helper\\EmailHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T07:37:11.029Z",
+              "WhenOpened": "2024-08-20T08:07:13.948Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Verify.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Authentication\\Verify.cshtml",
-              "RelativeDocumentMoniker": "Front_end\\Views\\Authentication\\Verify.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Authentication\\Verify.cshtml",
-              "RelativeToolTip": "Front_end\\Views\\Authentication\\Verify.cshtml",
-              "ViewState": "AQIAABoAAAAAAAAAAAAqwCkAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-20T07:28:59.579Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Authentication\\Register.cshtml",
-              "RelativeDocumentMoniker": "Front_end\\Views\\Authentication\\Register.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Authentication\\Register.cshtml",
-              "RelativeToolTip": "Front_end\\Views\\Authentication\\Register.cshtml",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAADQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-20T07:25:11.83Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "register.js",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\wwwroot\\js\\register.js",
-              "RelativeDocumentMoniker": "Front_end\\wwwroot\\js\\register.js",
-              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\wwwroot\\js\\register.js",
-              "RelativeToolTip": "Front_end\\wwwroot\\js\\register.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-08-20T07:24:53.726Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "verify.js",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\wwwroot\\js\\verify.js",
-              "RelativeDocumentMoniker": "Front_end\\wwwroot\\js\\verify.js",
-              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\wwwroot\\js\\verify.js",
-              "RelativeToolTip": "Front_end\\wwwroot\\js\\verify.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-08-20T07:23:06.909Z",
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Services\\EmailService.cs",
+              "RelativeToolTip": "DBfirst\\Services\\EmailService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-20T08:00:36.361Z",
               "EditorCaption": ""
             }
           ]
