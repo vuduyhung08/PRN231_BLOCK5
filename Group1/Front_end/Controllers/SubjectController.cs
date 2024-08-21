@@ -2,9 +2,9 @@
 
 namespace Front_end.Controllers
 {
-    public class MinhAdminController : Controller
+    public class SubjectController : Controller
     {
-        public IActionResult ManageActiveStatus()
+        public IActionResult Index()
         {
             return View();
         }

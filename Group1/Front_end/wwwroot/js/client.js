@@ -3,7 +3,7 @@
 
     // Fetch user data and populate the table
     function fetchUsers() {
-        fetch('http://localhost:5224/api/MinhAdmin/viewactive')
+        fetch('http://localhost:5224/api/Admin/viewactive')
             .then(response => response.json())
             .then(users => {
                 userTableBody.innerHTML = ''; // Clear existing rows
@@ -64,7 +64,7 @@
 
     // Update user's active status
     function updateUserActiveStatus(username, isActive) {
-        const url = `http://localhost:5224/api/MinhAdmin/editactive?username=${encodeURIComponent(username)}&isActive=${isActive}`;
+        const url = `http://localhost:5224/api/Admin/editactive?username=${encodeURIComponent(username)}&isActive=${isActive}`;
 
         fetch(url, {
             method: 'PUT',

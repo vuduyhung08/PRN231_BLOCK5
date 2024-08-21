@@ -10,12 +10,32 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using DBfirst.Helper;
 using DBfirst.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.OData.Edm;
+using Microsoft.OData.ModelBuilder;
+using Microsoft.AspNetCore.OData;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+IEdmModel GetEdmModel()
+{
+    var builder = new ODataConventionModelBuilder();
+    builder.EntitySet<Teacher>("Teachers");
+    builder.EntitySet<Subject>("Subjects");
 
-builder.Services.AddControllers();
+    // Register the action
+    var action = builder.EntityType<Teacher>().Action("ChangeSubject");
+    action.Parameter<int>("subjectId");
+    action.Returns<IActionResult>();
+
+    return builder.GetEdmModel();
+}
+
+builder.Services.AddControllers()
+    .AddOData(options => options.Select().Filter().OrderBy().Expand().SetMaxTop(100)
+    .AddRouteComponents("odata", GetEdmModel())
+    .Count()); 
 builder.Services.AddControllersWithViews();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

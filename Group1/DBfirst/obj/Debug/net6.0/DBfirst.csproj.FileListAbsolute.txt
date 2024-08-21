@@ -473,3 +473,9 @@ D:\PRN231_BLOCK5_GROUP1_test\Group1\DBfirst\obj\Debug\net6.0\refint\DBfirst.dll
 D:\PRN231_BLOCK5_GROUP1_test\Group1\DBfirst\obj\Debug\net6.0\DBfirst.pdb
 D:\PRN231_BLOCK5_GROUP1_test\Group1\DBfirst\obj\Debug\net6.0\DBfirst.genruntimeconfig.cache
 D:\PRN231_BLOCK5_GROUP1_test\Group1\DBfirst\obj\Debug\net6.0\ref\DBfirst.dll
+C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.AspNetCore.OData.dll
+C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.OData.Core.dll
+C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.OData.Edm.dll
+C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.OData.ModelBuilder.dll
+C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.Spatial.dll

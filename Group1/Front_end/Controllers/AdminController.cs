@@ -8,5 +8,10 @@ namespace Front_end.Controllers
         {
             return View();
         }
+
+        public IActionResult ManageActiveStatus()
+        {
+            return View();
+        }
     }
 }
