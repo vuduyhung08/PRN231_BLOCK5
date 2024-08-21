@@ -5,6 +5,7 @@ using DBfirst.DataAccess;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Results;
 using System.Diagnostics;
+using static DBfirst.Controllers.EvaluationsController;
 
 namespace DBfirst.Controllers
 {
@@ -98,17 +99,36 @@ namespace DBfirst.Controllers
 
         // PUT: api/Evaluations/5
         [HttpPut("{id}")]
-        public IActionResult PutById([FromRoute] int id, [FromBody] Evaluation evaluation)
+        public IActionResult PutById([FromRoute] int id, [FromBody] EvaluationPutDto evaluationDto)
         {
-            if (!ModelState.IsValid)
+            if (evaluationDto == null || !ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest("Invalid data.");
             }
 
-            if (id != evaluation.EvaluationId)
+            var evaluation = _context.Evaluations.Find(id);
+
+            if (evaluation == null)
             {
-                return BadRequest();
+                return NotFound();
             }
+
+            // Update fields
+            if (evaluationDto.Grade < 0 || evaluationDto.Grade > 10)
+            {
+                return BadRequest("Grade is in range of 0 - 10.");
+            }
+
+            evaluation.Grade = evaluationDto.Grade;
+
+            evaluation.AdditionExplanation = evaluationDto.AdditionExplanation;
+
+            if (evaluationDto.StudentId == null)
+            {
+                return BadRequest("StudentId is required.");
+            }
+
+            evaluation.StudentId = evaluationDto.StudentId;
 
             _context.Entry(evaluation).State = EntityState.Modified;
 
@@ -130,6 +150,15 @@ namespace DBfirst.Controllers
 
             return NoContent();
         }
+
+
+        public class EvaluationPutDto
+        {
+            public int Grade { get; set; }
+            public string? AdditionExplanation { get; set; }
+            public int? StudentId { get; set; }
+        }
+
 
 
         // DELETE: api/Evaluations/5
