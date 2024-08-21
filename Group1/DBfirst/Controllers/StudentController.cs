@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace DBfirst.Controllers
@@ -29,6 +31,35 @@ namespace DBfirst.Controllers
 
             return Ok(list);
         }
+
+        [HttpGet("student/{studentId}/classes")]
+        public async Task<IActionResult> GetClassesForStudent(int studentId)
+        {
+            var student = await _projectContext.Students
+                .Include(s => s.Classes) // Đảm bảo bao gồm các lớp mà sinh viên đăng ký
+                .FirstOrDefaultAsync(s => s.StudentId == studentId);
+
+            if (student == null)
+            {
+                return NotFound(); // Trả về lỗi 404 nếu sinh viên không tồn tại
+            }
+
+            var studentClasses = student.Classes.Select(c => new
+            {
+                ClassId = c.ClassId,
+                ClassName = c.ClassName,
+                TeacherId = c.TeacherId,
+                SubjectId = c.SubjectId
+            }).ToList();
+
+            return Ok(studentClasses);
+        }
+
+
+
+
+
+
         [HttpPost("AddStudentClass")]
         public IActionResult AddStudentClass([FromBody] AddStudentClassRequest request)
         {
@@ -70,12 +101,12 @@ namespace DBfirst.Controllers
 
 
 
-        [HttpPost("feedback")]
-        public IActionResult PostFeedBack(int cId, int sId, [FromForm] FeedBackDTO feedback)
+        [HttpPost("feedback/{StudentId}/{ClassId}")]
+        public IActionResult PostFeedBack(int StudentId, int ClassId, [FromForm] FeedBackDTO feedback)
         {
             // Kiểm tra xem sinh viên có tồn tại hay không
             var student = _projectContext.Students
-                .FirstOrDefault(s => s.StudentId == sId);
+                .FirstOrDefault(s => s.StudentId == StudentId);
 
             if (student == null)
             {
@@ -84,7 +115,7 @@ namespace DBfirst.Controllers
 
             // Kiểm tra xem sinh viên có tham gia lớp học này không
             var classStudent = _projectContext.Classes
-                .FirstOrDefault(c => c.ClassId == cId && c.Students.Any(s => s.StudentId == sId));
+                .FirstOrDefault(c => c.ClassId == ClassId && c.Students.Any(s => s.StudentId == StudentId));
 
             if (classStudent == null)
             {
@@ -93,7 +124,7 @@ namespace DBfirst.Controllers
 
             // Kiểm tra xem sinh viên đã đánh giá lớp học này chưa
             var existingFeedback = _projectContext.Feedbacks
-                .FirstOrDefault(f => f.ClassId == cId && f.StudentId == sId);
+                .FirstOrDefault(f => f.ClassId == ClassId && f.StudentId == StudentId);
 
             if (existingFeedback != null)
             {
@@ -103,8 +134,8 @@ namespace DBfirst.Controllers
             // Thêm đánh giá (feedback) cho lớp học
             var feedbackEntity = new Feedback
             {
-                StudentId = sId,
-                ClassId = cId,
+                StudentId = StudentId,
+                ClassId = ClassId,
                 Rating = feedback.Rating,
                 FeedbackText = feedback.FeedbackText,
                 CreatedDate = DateTime.Now

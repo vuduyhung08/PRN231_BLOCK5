@@ -33,6 +33,7 @@ namespace DBfirst.Controllers
             return Ok(list);
         }
 
+
         [HttpPost]
         public async Task<IActionResult> PostClass([FromBody] ClassDTO newClass)
         {

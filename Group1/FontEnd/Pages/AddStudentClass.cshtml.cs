@@ -85,6 +85,7 @@ namespace FontEnd.Pages
                 ResponseMessage = $"Error: {response.ReasonPhrase}";
             }
 
+            await OnGetAsync();
             return Page();
         }
     }

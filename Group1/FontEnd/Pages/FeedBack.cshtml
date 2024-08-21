@@ -1,0 +1,28 @@
+﻿@page
+@model FontEnd.Pages.FeedBackModel
+@{
+    ViewData["Title"] = "Add Feedback";
+}
+
+<h2>Add Feedback for Student @Model.StudentId and Class @Model.ClassId</h2>
+
+<form method="post">
+    <input type="hidden" name="StudentId" value="@Model.StudentId" />
+    <input type="hidden" name="ClassId" value="@Model.ClassId" />
+
+    <div class="form-group">
+        <label for="Rating">Rating</label>
+        <input id="Rating" name="Rating" type="number" min="1" max="5" class="form-control" value="@Model.Rating" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="FeedbackText">Feedback Text</label>
+        <textarea id="FeedbackText" name="FeedbackText" class="form-control">@Model.FeedbackText</textarea>
+        <span asp-validation-for="FeedbackText" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

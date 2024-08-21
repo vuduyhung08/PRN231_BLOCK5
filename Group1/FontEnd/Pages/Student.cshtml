@@ -1,5 +1,39 @@
-﻿@page
+﻿@page 
 @model FontEnd.Pages.StudentModel
 @{
 }
-Student
+<table class="table">
+    <thead>
+        <tr>
+            <th>Class ID</th>
+            <th>Class Name</th>
+            <th>Teacher ID</th>
+            <th>Subject ID</th>
+            <th>FeedBack</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Classes != null && Model.Classes.Any())
+        {
+            @foreach (var cls in Model.Classes)
+            {
+                <tr>
+                    <td>@cls.ClassId</td>
+                    <td>@cls.ClassName</td>
+                    <td>@cls.TeacherId</td>
+                    <td>@cls.SubjectId</td>
+                    <td>
+                        <a href="/FeedBack?studentId=11&classId=@cls.ClassId">FeedBack</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">No classes found for this student.</td>
+            </tr>
+        }
+    </tbody>
+</table>
