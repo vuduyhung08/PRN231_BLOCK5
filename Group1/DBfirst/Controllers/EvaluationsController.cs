@@ -83,11 +83,12 @@ namespace DBfirst.Controllers
             _context.Evaluations.Add(result);
             _context.SaveChanges();
 
-            return CreatedAtAction(nameof(GetById), new { id = result.EvaluationId }, result);
+            return Ok("Create successfully");
         }
 
         public class EvaluationPostDTO
         {
+            public int EvaluationId { get; set; }
             public int Grade { get; set; }
             public string AdditionExplanation { get; set; }
             public int StudentId { get; set; }

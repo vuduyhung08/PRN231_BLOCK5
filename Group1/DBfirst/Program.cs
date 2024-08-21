@@ -57,6 +57,17 @@ var tokenValidationParameter = new Microsoft.IdentityModel.Tokens.TokenValidatio
     ValidateLifetime = true
 };
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy => policy.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+});
+
+
+
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -82,6 +93,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 

@@ -1,75 +1,51 @@
 ﻿@model FE.Controllers.CreateEditEvaluationDTO
-<style>
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-    }
 
-    .spinner {
-        border: 10px solid #f3f3f3;
-        border-top: 10px solid #3498db;
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        animation: spin 2s linear infinite;
-    }
-</style>
-<h2>Create Evaluation</h2>
+<h2>Edit Evaluation</h2>
 
-<form id="create-evaluation-form">
+<form id="edit-evaluation-form">
     <div class="form-group">
         <label>Grade</label>
-        <input name="Grade" placeholder="Input grade" class="form-control" />
+        <input name="Grade" value="@Model.Grade" class="form-control" />
     </div>
     <div class="form-group">
         <label>Subject</label>
-        <select name="Subject" class="form-control" asp-items="@(new SelectList(Model.Subjects, "SubjectName", "SubjectName"))"></select>
+        <select name="Subject" value="@Model." class="form-control" asp-items="@(new SelectList(Model.Subjects, "SubjectName", "SubjectName"))"></select>
     </div>
     <div class="form-group">
         <label>Student</label>
-        <select name="StudentId" class="form-control" asp-items="@(new SelectList(Model.Students, "StudentId", "Name"))"></select>
-
+        <select name="StudentId" value="@Model.Students" class="form-control" asp-items="@(new SelectList(Model.Students, "StudentId", "Name"))"></select>
     </div>
     <div class="form-group">
-        <button id="submit-btn" type="button" class="btn btn-primary">Create</button>
+        <button id="submit-btn" type="button" class="btn btn-primary">Save Changes</button>
         <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
     </div>
 </form>
+
 <div class="overlay" id="loading-overlay">
     <div class="spinner"></div>
 </div>
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
         $("#submit-btn").click(function (e) {
-            console.log("clicked");
-
             const data = {
                 grade: $("input[name='Grade']").val(),
-                additionExplanation: $("select[name='Subject']").val(), // Corrected the name here
-                studentId: $("select[name='StudentId']").val()
+                subject: $("select[name='Subject']").val(),
+                studentId: $("select[name='StudentId']").val(),
+                additionExplanation: $("input[name='AdditionExplanation']").val()
             };
-
-            console.log(data.additionExplanation); // Corrected the casing here
 
             $("#loading-overlay").css('display', 'flex');
 
             $.ajax({
-                url: 'http://localhost:5224/api/Evaluations',
-                type: 'POST',
+                url: 'http://localhost:5224/api/Evaluations/', // Assuming EvaluationId is part of the model
+                type: 'PUT', // Using PUT for an update operation
                 contentType: 'application/json',
                 data: JSON.stringify(data),
                 success: function (response) {
                     $("#loading-overlay").hide();
-                    window.location.href = 'http://localhost:5063/Evaluations';
+                    window.location.href = '@Url.Action("Index")';
                 },
                 error: function (xhr, status, error) {
                     let errorMessage = 'An error occurred.';

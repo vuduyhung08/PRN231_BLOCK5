@@ -1,93 +1,177 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using static DBfirst.Controllers.SubjectsController;
+using DBfirst.Models;
 using System.Text;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
 
-public class EvaluationsController : Controller
+namespace FE.Controllers
 {
-    private readonly HttpClient _httpClient;
-    private readonly string _apiUrl = "http://localhost:5224/api/Evaluations";
-    private readonly string _subjectsApiUrl = "http://localhost:5224/api/Subjects"; // Adjust URL as needed
-
-    public EvaluationsController(HttpClient httpClient)
+    public class EvaluationsController : Controller
     {
-        _httpClient = httpClient;
-    }
+        private readonly HttpClient _httpClient;
+        private readonly string _apiUrl = "http://localhost:5224/api/Evaluations";
+        private readonly string _subjectsApiUrl = "http://localhost:5224/api/Subjects";
+        private readonly string _studentsApiUrl = "http://localhost:5224/api/Students";
 
-    public async Task<IActionResult> Create()
-    {
-        var model = new CreateEvaluationViewModel
+        public EvaluationsController(HttpClient httpClient)
         {
-            Subjects = await FetchSubjectsAsync()
-        };
-
-        return View(model);
-    }
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Grade,AdditionExplanation,StudentId")] CreateEvaluationViewModel evaluation)
-    {
-        if (ModelState.IsValid)
-        {
-            var subject = await FetchSubjectByNameAsync(evaluation.AdditionExplanation);
-            var evaluationDto = new EvaluationDto
-            {
-                Grade = evaluation.Grade,
-                AdditionExplanation = evaluation.AdditionExplanation, // Chứa SubjectName
-                StudentId = evaluation.StudentId
-            };
-
-            string jsonSerial = JsonConvert.SerializeObject(evaluationDto);
-            var content = new StringContent(jsonSerial, Encoding.UTF8, "application/json");
-
-            var result = await _httpClient.PostAsync(_apiUrl, content);
-
-            if (result.IsSuccessStatusCode)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-
-            ModelState.AddModelError(string.Empty, "Failed to create evaluation.");
+            _httpClient = httpClient;
         }
 
-        evaluation.Subjects = await FetchSubjectsAsync();
-        return View(evaluation);
+        // GET: Evaluations
+        public async Task<IActionResult> Index()
+        {
+            var response = await _httpClient.GetAsync(_apiUrl);
+            if (!response.IsSuccessStatusCode)
+            {
+                return View("Error");
+            }
+
+            var jsonString = await response.Content.ReadAsStringAsync();
+            var evaluations = JsonConvert.DeserializeObject<IEnumerable<EvaluationDTO>>(jsonString);
+
+            return View(evaluations);
+        }
+
+        // GET: Evaluations/Create
+        public async Task<IActionResult> Create()
+        {
+            var subjects = await FetchSubjectsAsync();
+            var students = await FetchStudentsAsync();
+
+            if (subjects == null || !subjects.Any() || students == null || !students.Any())
+            {
+                return View("Error"); // Hoặc xử lý lỗi theo cách khác
+            }
+
+            var model = new CreateEditEvaluationDTO
+            {
+                Subjects = subjects,
+                Students = students
+            };
+
+            return View(model);
+        }
+
+        // GET: Evaluations/Edit/5
+        public async Task<IActionResult> Edit(int id)
+        {
+            var response = await _httpClient.GetAsync($"{_apiUrl}/{id}");
+            if (!response.IsSuccessStatusCode)
+            {
+                return View("Error");
+            }
+
+            var jsonString = await response.Content.ReadAsStringAsync();
+            var evaluation = JsonConvert.DeserializeObject<EvaluationDTO>(jsonString);
+
+            var subjects = await FetchSubjectsAsync();
+            var students = await FetchStudentsAsync();
+
+            if (evaluation == null || subjects == null || students == null)
+            {
+                return View("Error");
+            }
+
+            var model = new CreateEditEvaluationDTO
+            {
+                Grade = evaluation.Grade,
+                AdditionExplanation = evaluation.SubjectName, // SubjectName used as AdditionExplanation
+                StudentId = evaluation.StudentId,
+                Subjects = subjects,
+                Students = students
+            };
+
+            return View(model);
+        }
+
+        // POST: Evaluations/Edit/5
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, CreateEditEvaluationDTO model)
+        {
+            if (!ModelState.IsValid)
+            {
+                // Fetch data again if model state is not valid
+                model.Subjects = await FetchSubjectsAsync();
+                model.Students = await FetchStudentsAsync();
+                return View(model);
+            }
+
+            var evaluationToUpdate = new EvaluationDTO
+            {
+                EvaluationId = id,
+                Grade = model.Grade,
+                AdditionExplanation = model.AdditionExplanation, // SubjectName used as AdditionExplanation
+                SubjectName = model.AdditionExplanation, // Assuming you want to use AdditionExplanation as SubjectName
+                StudentId = model.StudentId,
+                StudentName = model.Students.FirstOrDefault(s => s.StudentId == model.StudentId)?.Name
+            };
+
+            var jsonContent = JsonConvert.SerializeObject(evaluationToUpdate);
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PutAsync($"{_apiUrl}/{id}", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+
+            // If there was an error, reload the model data and return to view
+            model.Subjects = await FetchSubjectsAsync();
+            model.Students = await FetchStudentsAsync();
+           
+            return View(model);
+        }
+
+        // Method to fetch subjects
+        private async Task<IEnumerable<Subject>> FetchSubjectsAsync()
+        {
+            var response = await _httpClient.GetAsync(_subjectsApiUrl);
+            if (!response.IsSuccessStatusCode)
+            {
+                return new List<Subject>(); // Return empty list if request fails
+            }
+
+            var jsonString = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<IEnumerable<Subject>>(jsonString);
+        }
+
+        // Method to fetch students
+        private async Task<IEnumerable<Student>> FetchStudentsAsync()
+        {
+            var response = await _httpClient.GetAsync(_studentsApiUrl);
+            if (!response.IsSuccessStatusCode)
+            {
+                return new List<Student>(); // Return empty list if request fails
+            }
+
+            var jsonString = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<IEnumerable<Student>>(jsonString);
+        }
     }
 
-    private async Task<IEnumerable<SubjectDto>> FetchSubjectsAsync()
+    // DTO for Index view
+    public class EvaluationDTO
     {
-        var response = await _httpClient.GetAsync(_subjectsApiUrl);
-        response.EnsureSuccessStatusCode();
-        var jsonString = await response.Content.ReadAsStringAsync();
-        return JsonConvert.DeserializeObject<IEnumerable<SubjectDto>>(jsonString);
+        public int EvaluationId { get; set; }
+        public int Grade { get; set; }
+        public string AdditionExplanation { get; set; } // SubjectName
+        public string SubjectName { get; set; } // Will hold the same value as AdditionExplanation
+        public string StudentName { get; set; }
+        public int StudentId { get; set; }
     }
 
-    private async Task<SubjectDto> FetchSubjectByNameAsync(string subjectName)
+    // DTO for Create and Edit views
+    public class CreateEditEvaluationDTO
     {
-        var subjects = await FetchSubjectsAsync();
-        return subjects.FirstOrDefault(s => s.SubjectName == subjectName);
+        public int Grade { get; set; }
+        public string AdditionExplanation { get; set; } // SubjectName
+        public int StudentId { get; set; }
+        public IEnumerable<Subject> Subjects { get; set; }
+        public IEnumerable<Student> Students { get; set; }
     }
 }
-
-public class EvaluationDto
-{
-    public int Grade { get; set; }
-    public string AdditionExplanation { get; set; }
-    public int StudentId { get; set; }
-}
-
-public class SubjectDto
-{
-    public int SubjectId { get; set; }
-    public string SubjectName { get; set; }
-}
-
-public class CreateEvaluationViewModel
-{
-    public int Grade { get; set; }
-    public string AdditionExplanation { get; set; } // Đây là SubjectName
-    public int StudentId { get; set; }
-    public IEnumerable<SubjectDto> Subjects { get; set; } // Danh sách các môn học
-}
-

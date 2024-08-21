@@ -5,10 +5,10 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Student ID</th>
-            <th>Student Name</th>
+            <th>Student id</th>
+            <th>Student name</th>
             <th>Grade</th>
-            <th>AdditionExplanation</th> 
+            <th>Explanation</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -19,7 +19,7 @@
                 <td>@item.StudentId</td>
                 <td>@item.StudentName</td>
                 <td>@item.Grade</td>
-                <td>@item.AdditionExplanation</td> 
+                <td>@item.AdditionExplanation</td>
                 <td>
                     <a href="@Url.Action("Edit", new { id = item.EvaluationId })">Edit</a> |
                     <a href="@Url.Action("Delete", new { id = item.EvaluationId })">Delete</a>
