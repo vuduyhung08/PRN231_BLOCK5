@@ -1,0 +1,39 @@
+﻿@page
+@model FontEnd.Pages.ClassModel
+@{
+    ViewData["Title"] = "Create New Class";
+}
+
+<h2>Create New Class</h2>
+
+@if (Model.Classes != null && Model.Classes.Any())
+{
+    <table border="1" style="border-collapse: collapse; width: 80%; margin: 0 auto">
+        <tr>
+            <th style="padding: 8px; background-color: #f2f2f2;">ClassName</th>
+            <th style="padding: 8px; background-color: #f2f2f2;">TeacherId</th>
+            <th style="padding: 8px; background-color: #f2f2f2;">SubjectId</th>
+        </tr>
+        @foreach (var s in Model.Classes)
+        {
+            <tr>
+                <td style="padding: 8px; text-align: center;">@s.ClassName</td>
+                <td style="padding: 8px; text-align: center;">@s.TeacherId</td>
+                <td style="padding: 8px; text-align: center;">@s.SubjectId</td>
+            </tr>
+        }
+    </table>
+}
+
+<form method="post">
+
+    ClassName : <input name="ClassName" type="text" /><br />
+    TeacherId : <input name="TeacherId" type="text" /><br />
+    SubjectId : <input name="SubjectId" type="text" /><br />
+    
+    <input type="submit" value="Add" />
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

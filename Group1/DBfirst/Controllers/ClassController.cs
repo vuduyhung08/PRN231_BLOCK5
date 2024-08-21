@@ -1,6 +1,9 @@
-﻿using DBfirst.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
+using System.Linq;
+using System.Threading.Tasks;
+using DBfirst.Models;
 
 namespace DBfirst.Controllers
 {
@@ -15,9 +18,29 @@ namespace DBfirst.Controllers
             _projectContext = projectContext;
         }
 
-        [HttpPost]
-        public IActionResult PostClass([FromForm] ClassDTO newClass)
+        [EnableQuery]
+        [HttpGet]
+        public IActionResult Get()
         {
+            var list = _projectContext.Classes.Select(s => new 
+            {
+                ClassId = s.ClassId,
+                ClassName = s.ClassName,
+                TeacherId = s.TeacherId,
+                SubjectId = s.SubjectId
+            });
+
+            return Ok(list);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PostClass([FromBody] ClassDTO newClass)
+        {
+            if (newClass == null)
+            {
+                return BadRequest("Invalid class data.");
+            }
+
             var classEntity = new Class
             {
                 ClassName = newClass.ClassName,
@@ -26,9 +49,16 @@ namespace DBfirst.Controllers
             };
 
             _projectContext.Classes.Add(classEntity);
-            _projectContext.SaveChanges();
 
-            return Ok(classEntity);
+            try
+            {
+                await _projectContext.SaveChangesAsync();
+                return CreatedAtAction(nameof(Get), new { id = classEntity.ClassId }, classEntity); // Assuming 'Id' is the primary key
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Internal server error: {ex.Message}");
+            }
         }
     }
 }
