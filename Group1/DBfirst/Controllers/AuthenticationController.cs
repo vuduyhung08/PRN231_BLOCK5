@@ -81,7 +81,8 @@ namespace DBfirst.Controllers
                     Email = request.Email,
                     UserName = request.Email,
                     EmailConfirmed = false,
-                    ActiveCode = CreateRandomToken()
+                    ActiveCode = CreateRandomToken(),
+                    IsActive = true
                 };
 
                 var isCreated = await _userManager.CreateAsync(newUser, request.Password);
@@ -156,9 +157,25 @@ namespace DBfirst.Controllers
                         },
                         Result = false
                     });
-                }  
-                
-                
+                }
+
+                var isActive = await _context.User
+            .Where(u => u.Id == existingUser.Id)
+            .Select(u => u.IsActive)
+            .FirstOrDefaultAsync();
+
+                if (isActive.HasValue && !isActive.Value)
+                {
+                    return BadRequest(new AuthResult()
+                    {
+                        Errors = new List<string>
+                            {
+                                "Access denied"
+                            },
+                        Result = false
+                    });
+                }
+
                 var isCorrect = await _userManager.CheckPasswordAsync(existingUser, loginRequest.Password);
                 if (!isCorrect)
                 {
