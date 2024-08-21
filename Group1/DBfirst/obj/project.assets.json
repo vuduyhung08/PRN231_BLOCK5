@@ -4116,11 +4116,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PRN231_BLOCK5_GROUP1_test\\Group1\\DBfirst\\DBfirst.csproj",
+      "projectUniqueName": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
       "projectName": "DBfirst",
-      "projectPath": "D:\\PRN231_BLOCK5_GROUP1_test\\Group1\\DBfirst\\DBfirst.csproj",
+      "projectPath": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
       "packagesPath": "C:\\Users\\minh0\\.nuget\\packages\\",
-      "outputPath": "D:\\PRN231_BLOCK5_GROUP1_test\\Group1\\DBfirst\\obj\\",
+      "outputPath": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
