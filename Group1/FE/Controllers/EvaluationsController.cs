@@ -1,81 +1,93 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using DBfirst.Models;
+using static DBfirst.Controllers.SubjectsController;
 using System.Text;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Net.Http;
 
-namespace FE.Controllers
+public class EvaluationsController : Controller
 {
-    public class EvaluationsController : Controller
+    private readonly HttpClient _httpClient;
+    private readonly string _apiUrl = "http://localhost:5224/api/Evaluations";
+    private readonly string _subjectsApiUrl = "http://localhost:5224/api/Subjects"; // Adjust URL as needed
+
+    public EvaluationsController(HttpClient httpClient)
     {
-        private readonly HttpClient _httpClient;
-        private readonly string _apiUrl = "http://localhost:5224/api/Evaluations";
-        private readonly string _subjectsApiUrl = "http://localhost:5224/api/Subjects"; // Adjust URL as needed
+        _httpClient = httpClient;
+    }
 
-        public EvaluationsController(HttpClient httpClient)
+    public async Task<IActionResult> Create()
+    {
+        var model = new CreateEvaluationViewModel
         {
-            _httpClient = httpClient;
-        }
+            Subjects = await FetchSubjectsAsync()
+        };
 
-        public async Task<IActionResult> Create()
+        return View(model);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create([Bind("Grade,AdditionExplanation,StudentId")] CreateEvaluationViewModel evaluation)
+    {
+        if (ModelState.IsValid)
         {
-            // Fetch subjects from API
-            var response = await _httpClient.GetAsync(_subjectsApiUrl);
-            if (!response.IsSuccessStatusCode)
+            var subject = await FetchSubjectByNameAsync(evaluation.AdditionExplanation);
+            var evaluationDto = new EvaluationDto
             {
-                // Handle error (e.g., show an error message in the view)
-                return View("Error");
-            }
-
-            var jsonString = await response.Content.ReadAsStringAsync();
-            var subjects = JsonConvert.DeserializeObject<IEnumerable<Subject>>(jsonString);
-
-            var model = new CreateEvaluationDTO
-            {
-                Subjects = subjects // Populate subjects
+                Grade = evaluation.Grade,
+                AdditionExplanation = evaluation.AdditionExplanation, // Chứa SubjectName
+                StudentId = evaluation.StudentId
             };
 
-            return View(model);
-        }
+            string jsonSerial = JsonConvert.SerializeObject(evaluationDto);
+            var content = new StringContent(jsonSerial, Encoding.UTF8, "application/json");
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EvaluationId,Grade,SubjectId,StudentId")] CreateEvaluationDTO evaluation)
-        {
-            if (ModelState.IsValid)
+            var result = await _httpClient.PostAsync(_apiUrl, content);
+
+            if (result.IsSuccessStatusCode)
             {
-                string jsonSerial = JsonConvert.SerializeObject(evaluation);
-                var content = new StringContent(jsonSerial, Encoding.UTF8, "application/json");
-
-                var result = await _httpClient.PostAsync(_apiUrl, content);
-
-                // Check for success status
-                if (result.IsSuccessStatusCode)
-                {
-                    return RedirectToAction(nameof(Index));
-                }
-
-                ModelState.AddModelError(string.Empty, "Failed to create evaluation.");
+                return RedirectToAction(nameof(Index));
             }
 
-            // Fetch subjects again if model state is invalid
-            var response = await _httpClient.GetAsync(_subjectsApiUrl);
-            var jsonString = await response.Content.ReadAsStringAsync();
-            var subjects = JsonConvert.DeserializeObject<IEnumerable<Subject>>(jsonString);
-
-            evaluation.Subjects = subjects;
-            return View(evaluation);
+            ModelState.AddModelError(string.Empty, "Failed to create evaluation.");
         }
 
-        public class CreateEvaluationDTO
-        {
-            public int EvaluationId { get; set; }
-            public int Grade { get; set; }
-            public int SubjectId { get; set; }
-            public int StudentId { get; set; }
-            public IEnumerable<Subject> Subjects { get; set; }
-        }
+        evaluation.Subjects = await FetchSubjectsAsync();
+        return View(evaluation);
+    }
+
+    private async Task<IEnumerable<SubjectDto>> FetchSubjectsAsync()
+    {
+        var response = await _httpClient.GetAsync(_subjectsApiUrl);
+        response.EnsureSuccessStatusCode();
+        var jsonString = await response.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<IEnumerable<SubjectDto>>(jsonString);
+    }
+
+    private async Task<SubjectDto> FetchSubjectByNameAsync(string subjectName)
+    {
+        var subjects = await FetchSubjectsAsync();
+        return subjects.FirstOrDefault(s => s.SubjectName == subjectName);
     }
 }
+
+public class EvaluationDto
+{
+    public int Grade { get; set; }
+    public string AdditionExplanation { get; set; }
+    public int StudentId { get; set; }
+}
+
+public class SubjectDto
+{
+    public int SubjectId { get; set; }
+    public string SubjectName { get; set; }
+}
+
+public class CreateEvaluationViewModel
+{
+    public int Grade { get; set; }
+    public string AdditionExplanation { get; set; } // Đây là SubjectName
+    public int StudentId { get; set; }
+    public IEnumerable<SubjectDto> Subjects { get; set; } // Danh sách các môn học
+}
+

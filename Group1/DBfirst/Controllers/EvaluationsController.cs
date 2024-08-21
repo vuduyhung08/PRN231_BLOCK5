@@ -31,29 +31,23 @@ namespace DBfirst.Controllers
                                EvaluationId = e.EvaluationId,
                                Grade = e.Grade,
                                AdditionExplanation = e.AdditionExplanation,
-                               Student = new StudentDTO
-                               {
-                                   StudentId = e.Student.StudentId,
-                                   Name = e.Student.Name
-                               }
+                               StudentId = e.StudentId.HasValue ? e.StudentId.Value : 0, // Trả về StudentId
+                               StudentName = e.Student != null ? e.Student.Name : null // Trả về StudentName
                            })
                            .AsQueryable();
         }
 
 
-        public class StudentDTO
-        {
-            public int StudentId { get; set; }
-            public string Name { get; set; }
-        }
 
         public class EvaluationDTO
         {
             public int EvaluationId { get; set; }
             public int Grade { get; set; }
             public string AdditionExplanation { get; set; }
-            public StudentDTO Student { get; set; }
+            public int StudentId { get; set; } // Thêm StudentId
+            public string StudentName { get; set; } // Thêm StudentName
         }
+
 
 
 
@@ -81,24 +75,24 @@ namespace DBfirst.Controllers
 
             var result = new Evaluation
             {
-                EvaluationId = 0,
                 Grade = evaluation.Grade,
                 AdditionExplanation = evaluation.AdditionExplanation,
-                StudentId = evaluation.StudentId
+                StudentId = evaluation.StudentId // Gán StudentId
             };
 
             _context.Evaluations.Add(result);
             _context.SaveChanges();
 
-            return CreatedAtAction(nameof(GetById), new { id = evaluation.EvaluationId }, evaluation);
+            return CreatedAtAction(nameof(GetById), new { id = result.EvaluationId }, result);
         }
+
         public class EvaluationPostDTO
         {
-            public int EvaluationId { get; set; }
             public int Grade { get; set; }
             public string AdditionExplanation { get; set; }
             public int StudentId { get; set; }
         }
+
 
 
         // PUT: api/Evaluations/5
@@ -135,6 +129,7 @@ namespace DBfirst.Controllers
 
             return NoContent();
         }
+
 
         // DELETE: api/Evaluations/5
         [HttpDelete("{id}")]

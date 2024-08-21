@@ -1,35 +1,32 @@
-﻿@model IEnumerable<DBfirst.Models.Evaluation>
+﻿@model IEnumerable<FE.Controllers.EvaluationDTO>
 
-@{
-    ViewData["Title"] = "Evaluations";
-}
-
-<h1>@ViewData["Title"]</h1>
-
-<p class="mt-5" style="text-align: end">
-    <a asp-action="Create">Enter evaluation</a>
-</p>
+<h2>Evaluations</h2>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Evaluation ID</th>
-            <th>Grade</th>
-            <th>Addition Explanation</th>
             <th>Student ID</th>
-            <th>Student Name</th> <!-- New column -->
+            <th>Student Name</th>
+            <th>Grade</th>
+            <th>AdditionExplanation</th> 
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.EvaluationId</td>
+                <td>@item.StudentId</td>
+                <td>@item.StudentName</td>
                 <td>@item.Grade</td>
-                <td>@item.AdditionExplanation</td>
-                <td>@item.Student?.StudentId</td>
-                <td>@item.Student?.Name</td> <!-- New column for Student Name -->
+                <td>@item.AdditionExplanation</td> 
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.EvaluationId })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = item.EvaluationId })">Delete</a>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+<a href="@Url.Action("Create")" class="btn btn-primary">Add New Evaluation</a>
