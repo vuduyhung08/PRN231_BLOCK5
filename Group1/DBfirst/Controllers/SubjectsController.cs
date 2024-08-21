@@ -1,6 +1,8 @@
 ﻿using DBfirst.DataAccess;
 using DBfirst.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
+using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.EntityFrameworkCore;
 
 namespace DBfirst.Controllers
@@ -14,6 +16,18 @@ namespace DBfirst.Controllers
         public SubjectsController(Project_B5DBContext context)
         {
             _context = context;
+        }
+
+        [HttpGet]
+        [EnableQuery]
+        public IActionResult GetAll()
+        {
+            if (_context.Subjects == null)
+            {
+                return NotFound();
+            }
+            return Ok(_context.Subjects
+                .AsQueryable());
         }
 
         // GET: api/subject

@@ -479,3 +479,4 @@ C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\ne
 C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.OData.Edm.dll
 C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.OData.ModelBuilder.dll
 C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.Spatial.dll
+C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Newtonsoft.Json.dll

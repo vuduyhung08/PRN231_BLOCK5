@@ -14,8 +14,4 @@
     <ProjectReference Include="..\DBfirst\DBfirst.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Teacher\" />
-  </ItemGroup>
-
 </Project>

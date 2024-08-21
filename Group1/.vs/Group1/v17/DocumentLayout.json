@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\views\\evaluation\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\views\\evaluation\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\models\\odataresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\models\\odataresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\controllers\\evaluationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\controllers\\evaluationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\front_end\\controllers\\teachercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\controllers\\teachercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\dbfirst\\controllers\\evaluationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\evaluationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\views\\teacher\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\views\\teacher\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\views\\evaluation\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\views\\evaluation\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\dbfirst\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\dbfirst\\controllers\\teacherscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\dbfirst\\controllers\\teacherscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\teacherscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\dbfirst\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\front_end\\views\\evaluation\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\views\\evaluation\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,58 +38,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Evaluation\\Index.cshtml",
-              "RelativeDocumentMoniker": "Front_end\\Views\\Evaluation\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Evaluation\\Index.cshtml",
-              "RelativeToolTip": "Front_end\\Views\\Evaluation\\Index.cshtml",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABcAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-21T14:22:10.226Z",
+              "DocumentIndex": 0,
+              "Title": "OdataResponse.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Models\\OdataResponse.cs",
+              "RelativeDocumentMoniker": "Front_end\\Models\\OdataResponse.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Models\\OdataResponse.cs",
+              "RelativeToolTip": "Front_end\\Models\\OdataResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T17:39:07.284Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "EvaluationController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Controllers\\EvaluationController.cs",
-              "RelativeDocumentMoniker": "Front_end\\Controllers\\EvaluationController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Controllers\\EvaluationController.cs",
-              "RelativeToolTip": "Front_end\\Controllers\\EvaluationController.cs",
-              "ViewState": "AQIAAEQAAAAAAAAAAAAgwE8AAAA1AAAA",
+              "Title": "TeacherController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Controllers\\TeacherController.cs",
+              "RelativeDocumentMoniker": "Front_end\\Controllers\\TeacherController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Controllers\\TeacherController.cs",
+              "RelativeToolTip": "Front_end\\Controllers\\TeacherController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAkwC8AAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T14:15:40.243Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Evaluation\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Front_end\\Views\\Evaluation\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Evaluation\\Edit.cshtml",
-              "RelativeToolTip": "Front_end\\Views\\Evaluation\\Edit.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-21T14:13:53.675Z",
+              "WhenOpened": "2024-08-21T16:51:47.546Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "EvaluationsController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\EvaluationsController.cs",
-              "RelativeDocumentMoniker": "DBfirst\\Controllers\\EvaluationsController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\EvaluationsController.cs",
-              "RelativeToolTip": "DBfirst\\Controllers\\EvaluationsController.cs",
-              "ViewState": "AQIAAIEAAAAAAAAAAAAowKYAAAAuAAAA",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Teacher\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Front_end\\Views\\Teacher\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Teacher\\Edit.cshtml",
+              "RelativeToolTip": "Front_end\\Views\\Teacher\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-21T17:13:40.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Program.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Program.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Program.cs",
+              "RelativeToolTip": "DBfirst\\Program.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAiwBgAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T14:12:01.051Z",
+              "WhenOpened": "2024-08-21T17:03:08.579Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SubjectsController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\SubjectsController.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Controllers\\SubjectsController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\SubjectsController.cs",
+              "RelativeToolTip": "DBfirst\\Controllers\\SubjectsController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAqwBQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T16:55:29.439Z",
               "EditorCaption": ""
             },
             {
@@ -92,9 +113,22 @@
               "RelativeDocumentMoniker": "DBfirst\\Controllers\\TeachersController.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\TeachersController.cs",
               "RelativeToolTip": "DBfirst\\Controllers\\TeachersController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAABKAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAuwBMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T14:07:55.244Z",
+              "WhenOpened": "2024-08-21T16:54:29.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Evaluation\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Front_end\\Views\\Evaluation\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Evaluation\\Edit.cshtml",
+              "RelativeToolTip": "Front_end\\Views\\Evaluation\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-21T16:51:00.486Z",
               "EditorCaption": ""
             }
           ]
