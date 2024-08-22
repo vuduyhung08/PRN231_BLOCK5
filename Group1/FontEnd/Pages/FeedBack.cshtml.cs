@@ -54,7 +54,7 @@ namespace FontEnd.Pages
                 if (response.IsSuccessStatusCode)
                 {
                     ViewData["Message"] = "Feedback added successfully!";
-                    return RedirectToPage(); // Redirect to the same page or a success page
+                    return RedirectToPage("/Student"); // Redirect to the same page or a success page
                 }
                 else
                 {
