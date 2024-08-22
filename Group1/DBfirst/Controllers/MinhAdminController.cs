@@ -7,10 +7,10 @@ namespace DBfirst.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AdminController : ControllerBase
+    public class MinhAdminController : ControllerBase
     {
         private readonly Project_B5DBContext _context;
-        public AdminController(Project_B5DBContext context)
+        public MinhAdminController(Project_B5DBContext context)
         {
             _context = context;
         }
