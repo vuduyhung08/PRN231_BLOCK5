@@ -19,5 +19,8 @@
 
         public virtual ICollection<Evaluation> Evaluations { get; set; }
         public virtual ICollection<StudentDetail> StudentDetails { get; set; }
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
+        public virtual ICollection<Class> Classes { get; set; }
+
     }
 }

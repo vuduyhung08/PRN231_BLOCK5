@@ -98,7 +98,7 @@ namespace DBfirst.Controllers
                     {
                         Errors = new List<string> { $"Server error: {errorMessages}" },
                         Result = false
-                    });                    
+                    });
                 }
             }
             return BadRequest();
@@ -108,12 +108,12 @@ namespace DBfirst.Controllers
         public async Task<IActionResult> ConfirmEmail([FromBody] UserVerifyRequestDto request)
         {
             var user = _context.User.FirstOrDefault(s => s.Email == request.Email);
-            if(user == null)
+            if (user == null)
             {
                 return BadRequest("Account isn't exist in the system");
             }
 
-            if(user.EmailConfirmed)
+            if (user.EmailConfirmed)
             {
                 return Ok("The email has already been confirmed");
             }
@@ -122,7 +122,7 @@ namespace DBfirst.Controllers
                 user.ActiveCode = null;
                 user.EmailConfirmed = true;
                 _context.User.Update(user);
-                _context.SaveChanges(); 
+                _context.SaveChanges();
                 return Ok("Your account has been activated");
             }
             return BadRequest("Confirm email failed");
@@ -132,10 +132,10 @@ namespace DBfirst.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] UserLoginRequestDto loginRequest)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var existingUser = await _userManager.FindByEmailAsync(loginRequest.Email);
-                if(existingUser == null)
+                if (existingUser == null)
                 {
                     return BadRequest(new AuthResult()
                     {
@@ -147,7 +147,7 @@ namespace DBfirst.Controllers
                     });
                 }
 
-                if(!existingUser.EmailConfirmed)
+                if (!existingUser.EmailConfirmed)
                 {
                     return BadRequest(new AuthResult()
                     {
@@ -199,7 +199,7 @@ namespace DBfirst.Controllers
                     "Invalid payload"
                 },
                 Result = false
-            }); 
+            });
         }
         private async Task<AuthResult> GenerateJwtToken(IdentityUser user)
         {
@@ -249,10 +249,10 @@ namespace DBfirst.Controllers
         [Route("RefreshToken")]
         public async Task<IActionResult> RefreshToken([FromBody] TokenRequest tokenRequest)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var result = await VerifyAndGenerateToken(tokenRequest);
-                if(result == null)
+                if (result == null)
                 {
                     return BadRequest(new AuthResult()
                     {

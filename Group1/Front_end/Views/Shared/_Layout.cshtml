@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Front_end</title>
+    <title>@ViewData["Title"] - Student Management</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Front_end.styles.css" asp-append-version="true" />
@@ -17,13 +17,20 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown" style="margin-right:20px">
+                            <a id="userDropdown" class="nav-link dropdown-toggle btn btn-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 5px !important; font-weight:bold; color: #006ce4 !important; padding: 5px 15px">
+                            </a>
+                            <ul id="dropdownMenu" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <!-- Dynamic content will be injected here by JavaScript -->
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                        <li id="loginRegisterLinks" class="nav-item" style="display: flex">
+                            <!-- Dynamic content for login/register will be injected here by JavaScript -->
                         </li>
                     </ul>
                 </div>
@@ -44,6 +51,44 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const userName = localStorage.getItem("UserName");
+            const userRole = localStorage.getItem("UserRole");
+
+            const userDropdown = document.getElementById('userDropdown');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            const loginRegisterLinks = document.getElementById('loginRegisterLinks');
+
+            if (userName) {
+                userDropdown.innerHTML = `Welcome, ${userName}`;
+
+                if (userRole === "Admin") {
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Admin/Dashboard"><i style="margin-right: 10px" class="fa-solid fa-user-tie"></i>Trang quản trị</a></li>`;
+                }
+                if (userRole === "Teacher") {
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Evaluation/Index"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Chấm điểm</a></li>`;
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Teacher/TeacherPage"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Profile</a></li>`;
+                }
+                if (userRole === "Student") {
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Student/StudentPage"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Profile</a></li>`;
+                }
+
+                dropdownMenu.innerHTML += `
+                        <li style="padding: 5px 0"><a class="dropdown-item" href="/Logout"><i style="margin-right: 10px" class="fa-solid fa-arrow-right-from-bracket"></i>Đăng xuất</a></li>
+                    `;
+            } else {
+                loginRegisterLinks.innerHTML = `
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light" style="border-radius: 5px !important; font-weight:bold; color: #006ce4 !important; padding: 5px 15px" href="/Authentication/Register">Đăng ký</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light" style="border-radius: 5px !important; font-weight:bold; color: #006ce4 !important; padding: 5px 15px" href="/Authentication/Login">Đăng nhập</a>
+                        </li>
+                    `;
+            }
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

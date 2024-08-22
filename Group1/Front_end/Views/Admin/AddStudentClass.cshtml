@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Add Student to Class";
+    var students = ViewBag.Students as List<DBfirst.Models.Student>;
+    var classes = ViewBag.Classes as List<DBfirst.Models.Class>;
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post" asp-action="AddStudentClass">
+    <div class="form-group">
+        <label for="studentSelect">Select Student</label>
+        <select id="studentSelect" name="StudentId" class="form-control">
+            <option value="">--Select Student--</option>
+            @if (students != null)
+            {
+                @foreach (var student in students)
+                {
+                    <option value="@student.StudentId">@student.Name</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="classSelect">Select Class</label>
+        <select id="classSelect" name="ClassId" class="form-control">
+            <option value="">--Select Class--</option>
+            @if (classes != null)
+            {
+                @foreach (var classItem in classes)
+                {
+                    <option value="@classItem.ClassId">@classItem.ClassName</option>
+                }
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+@if (ViewBag.ResponseMessage != null)
+{
+    <div class="alert alert-info mt-3">
+        @ViewBag.ResponseMessage
+    </div>
+}

@@ -1,12 +1,11 @@
-﻿
-@model IEnumerable<Front_end.Controllers.EvaluationDTO>
+﻿@model IEnumerable<Front_end.Controllers.EvaluationDTO>
 <link rel="stylesheet" href="~/css/register.css" />
 
 <h2>Evaluations</h2>
 
 <div class="d-flex justify-content-end">
     <a href="@Url.Action("Create")" class="btn btn-primary">Add New Evaluation</a>
-    <a id="send-grade" class="btn btn-primary ms-5">Send grade to student</a>
+    <a id="send-grade" href="javascript:void(0);" onclick="sendGrade()" class="btn btn-primary ms-5">Send grade to student</a>
 </div>
 <table class="table mt-4">
     <thead>
@@ -76,5 +75,41 @@
                 }
             });
         }
+    }
+
+    function sendGrade() {
+        $("#loading-overlay").css('display', 'flex');
+
+        $.ajax({
+            url: `http://localhost:5224/SendGrade`,
+            type: 'POST',
+            success: function (response) {
+                $("#loading-overlay").hide();
+                alert("Send grade successfully!");
+            },
+            error: function (xhr, status, error) {
+                let errorMessage = 'An error occurred.';
+                try {
+                    const responseJson = JSON.parse(xhr.responseText);
+                    if (responseJson.errors) {
+                        let formattedErrors = `Error Code: ${responseJson.status}\n`;
+                        for (const [key, messages] of Object.entries(responseJson.errors)) {
+                            formattedErrors += `${key}: \n${messages.join('\n')} \n`;
+                        }
+                        errorMessage = formattedErrors.trim();
+                    } else if (responseJson.title) {
+                        errorMessage = `${responseJson.title}: ${responseJson.detail || 'No details provided'}`;
+                    } else {
+                        errorMessage = `Error: ${xhr.responseText}`;
+                    }
+                } catch (e) {
+                    errorMessage = `Error: ${xhr.responseText}`;
+                }
+
+                $("#loading-overlay").hide();
+                alert(errorMessage);
+            }
+        });
+
     }
 </script>
