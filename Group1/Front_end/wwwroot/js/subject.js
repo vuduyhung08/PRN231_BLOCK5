@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    const apiUrl = 'http://localhost:5224/api/Subject';
+    const apiUrl = 'http://localhost:5224/api/Subjects';
     let existingSubjects = [];
 
     function loadSubjects() {
