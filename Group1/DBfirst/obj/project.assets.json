@@ -4431,11 +4431,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\khang\\Downloads\\PRN231_BLOCK5_-\\PRN231_BLOCK5_GROUP1-main\\Group1\\DBfirst\\DBfirst.csproj",
+      "projectUniqueName": "C:\\Users\\khang\\OneDrive\\Desktop\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
       "projectName": "DBfirst",
-      "projectPath": "C:\\Users\\khang\\Downloads\\PRN231_BLOCK5_-\\PRN231_BLOCK5_GROUP1-main\\Group1\\DBfirst\\DBfirst.csproj",
+      "projectPath": "C:\\Users\\khang\\OneDrive\\Desktop\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
       "packagesPath": "C:\\Users\\khang\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\khang\\Downloads\\PRN231_BLOCK5_-\\PRN231_BLOCK5_GROUP1-main\\Group1\\DBfirst\\obj\\",
+      "outputPath": "C:\\Users\\khang\\OneDrive\\Desktop\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\khang\\AppData\\Roaming\\NuGet\\NuGet.Config",

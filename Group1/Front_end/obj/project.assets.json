@@ -4347,11 +4347,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\khang\\Downloads\\PRN231_BLOCK5_-\\PRN231_BLOCK5_GROUP1-main\\Group1\\Front_end\\Front_end.csproj",
+      "projectUniqueName": "C:\\Users\\khang\\OneDrive\\Desktop\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Front_end.csproj",
       "projectName": "Front_end",
-      "projectPath": "C:\\Users\\khang\\Downloads\\PRN231_BLOCK5_-\\PRN231_BLOCK5_GROUP1-main\\Group1\\Front_end\\Front_end.csproj",
+      "projectPath": "C:\\Users\\khang\\OneDrive\\Desktop\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Front_end.csproj",
       "packagesPath": "C:\\Users\\khang\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\khang\\Downloads\\PRN231_BLOCK5_-\\PRN231_BLOCK5_GROUP1-main\\Group1\\Front_end\\obj\\",
+      "outputPath": "C:\\Users\\khang\\OneDrive\\Desktop\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\khang\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4368,8 +4368,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\khang\\Downloads\\PRN231_BLOCK5_-\\PRN231_BLOCK5_GROUP1-main\\Group1\\DBfirst\\DBfirst.csproj": {
-              "projectPath": "C:\\Users\\khang\\Downloads\\PRN231_BLOCK5_-\\PRN231_BLOCK5_GROUP1-main\\Group1\\DBfirst\\DBfirst.csproj"
+            "C:\\Users\\khang\\OneDrive\\Desktop\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {
+              "projectPath": "C:\\Users\\khang\\OneDrive\\Desktop\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj"
             }
           }
         }
