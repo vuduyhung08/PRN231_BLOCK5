@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.OData.Query;
 using System.Linq;
 using System.Threading.Tasks;
 using DBfirst.Models;
+using DBfirst.Data.DTOs;
+using DBfirst.DataAccess;
 
 namespace DBfirst.Controllers
 {
@@ -11,9 +13,9 @@ namespace DBfirst.Controllers
     [ApiController]
     public class ClassController : ControllerBase
     {
-        private readonly BL5_PRN231_ProjectContext _projectContext;
+        private readonly Project_B5DBContext _projectContext;
 
-        public ClassController(BL5_PRN231_ProjectContext projectContext)
+        public ClassController(Project_B5DBContext projectContext)
         {
             _projectContext = projectContext;
         }

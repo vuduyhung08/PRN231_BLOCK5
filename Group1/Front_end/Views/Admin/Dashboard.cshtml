@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+<link rel="stylesheet" href="~/css/dashboard.css" />
+
+<div class="d-flex mt-5">
+    <div style="flex: 3">
+        <h1>Dashboard</h1>
+        <div class="m-5">
+            <div class="grid-container" id="dashboard-grid">
+                <div class="grid-item" >
+                    <div class="box-content skeleton" style="height: 270px"></div>
+                </div>
+                <div class="grid-item">
+                    <div class="box-content skeleton" style="height: 270px"></div>
+                </div>
+                <div class="grid-item">
+                    <div class="box-content skeleton" style="height: 270px"></div>
+                </div>
+                <div class="grid-item">
+                    <div class="box-content skeleton" style="height: 270px"></div>
+                </div>
+                <div class="grid-item">
+                    <div class="box-content skeleton" style="height: 270px"></div>
+                </div>
+                <div class="grid-item">
+                    <div class="box-content skeleton" style="height: 270px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="flex: 1">
+        <h1 style="text-align: center">Leaderboard</h1>
+        
+        <div class="top-students d-flex justify-content-around mt-5" id="top-students-container">
+            <div class="student-card second-place" style="background-color: white !important; 	box-shadow: 0 0px 10px 0 lightgray !important">
+                <div class="student-avatar skeleton"></div>
+                <div class="student-info">
+                    <h4 class="skeleton" style="width: 70px; height: 25px"></h4>
+                    <p class="skeleton" style="width: 70px; height: 18px; margin-top: 5px"></p>
+                </div>
+            </div>
+            <div class="student-card first-place" style="background-color: white !important; box-shadow: 0 0px 10px 0 lightgray !important">
+                <div class="student-avatar skeleton"></div>
+                <div class="student-info">
+                    <h4 class="skeleton" style="width: 70px; height: 25px"></h4>
+                    <p class="skeleton" style="width: 70px; height: 18px; margin-top: 5px"></p>
+                </div>
+            </div>
+            <div class="student-card third-place" style="background-color: white !important; box-shadow: 0 0px 10px 0 lightgray !important">
+                <div class="student-avatar skeleton"></div>
+                <div class="student-info">
+                    <h4 class="skeleton" style="width: 70px; height: 25px"></h4>
+                    <p class="skeleton" style="width: 70px; height: 18px; margin-top: 5px"></p>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-borderless mt-5" id="leaderboard-table">
+            <thead>
+                <tr>
+                    <td>Rank</td>
+                    <td>Name</td>
+                    <td>AVG. Score</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="skeleton" style="height: 50px">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="skeleton" style="height: 50px">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="skeleton" style="height: 50px">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="skeleton" style="height: 50px">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="skeleton" style="height: 50px">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="skeleton" style="height: 50px">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="skeleton" style="height: 50px">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="loading-overlay" class="loading-overlay">
+    <div class="spinner"></div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="~/js/dashboard.js"></script>

@@ -7,17 +7,15 @@ namespace DBfirst.Models
     {
         public Subject()
         {
-            Classes = new HashSet<Class>();
             Teachers = new HashSet<Teacher>();
-            Students = new HashSet<Student>();
+            StudentSubjects = new HashSet<StudentSubject>();
         }
 
         public int SubjectId { get; set; }
         public string? SubjectName { get; set; }
-
+        public virtual ICollection<StudentSubject> StudentSubjects { get; set; }
         public virtual ICollection<Class> Classes { get; set; }
         public virtual ICollection<Teacher> Teachers { get; set; }
 
-        public virtual ICollection<Student> Students { get; set; }
     }
 }
