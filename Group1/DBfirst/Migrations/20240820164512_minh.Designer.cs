@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DBfirst.Migrations
 {
     [DbContext(typeof(Project_B5DBContext))]
-    [Migration("20240822034932_Init project")]
-    partial class Initproject
+    [Migration("20240820164512_minh")]
+    partial class minh
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

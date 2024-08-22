@@ -2,9 +2,9 @@
 
 namespace Front_end.Controllers
 {
-    public class StudentController : Controller
+    public class MinhAdminController : Controller
     {
-        public IActionResult StudentPage()
+        public IActionResult ManageActiveStatus()
         {
             return View();
         }

@@ -1,33 +1,19 @@
 ﻿using DBfirst.DataAccess;
 using DBfirst.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.OData.Query;
-using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.EntityFrameworkCore;
 
 namespace DBfirst.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class SubjectsController : ControllerBase
+    public class MinhSubjectController : ControllerBase
     {
         private readonly Project_B5DBContext _context;
 
-        public SubjectsController(Project_B5DBContext context)
+        public MinhSubjectController(Project_B5DBContext context)
         {
             _context = context;
-        }
-
-        [HttpGet]
-        [EnableQuery]
-        public IActionResult GetAll()
-        {
-            if (_context.Subjects == null)
-            {
-                return NotFound();
-            }
-            return Ok(_context.Subjects
-                .AsQueryable());
         }
 
         // GET: api/subject

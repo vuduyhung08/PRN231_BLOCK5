@@ -2,7 +2,7 @@
 
 namespace Front_end.Controllers
 {
-    public class SubjectController : Controller
+    public class MinhSubjectController : Controller
     {
         public IActionResult Index()
         {
