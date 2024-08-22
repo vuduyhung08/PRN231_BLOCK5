@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DBfirst.Models
+﻿namespace DBfirst.Models
 {
     public partial class Student
     {
@@ -22,6 +19,5 @@ namespace DBfirst.Models
 
         public virtual ICollection<Evaluation> Evaluations { get; set; }
         public virtual ICollection<StudentDetail> StudentDetails { get; set; }
-
     }
 }

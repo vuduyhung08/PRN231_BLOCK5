@@ -1,4 +1,4 @@
-﻿namespace DBfirst.DTOs
+﻿namespace DBfirst.Data.DTOs
 {
     public class StudentDTO
     {

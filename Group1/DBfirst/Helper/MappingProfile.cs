@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DBfirst.DTOs;
+using DBfirst.Data.DTOs;
 using DBfirst.Models;
 
 public class MappingProfile : Profile

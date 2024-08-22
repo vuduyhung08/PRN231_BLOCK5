@@ -1,19 +1,17 @@
 using DBfirst.Configurations;
+using DBfirst.DataAccess;
+using DBfirst.Helper;
 using DBfirst.Models;
+using DBfirst.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using DBfirst.DataAccess;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.Extensions.Configuration;
-using DBfirst.Helper;
-using DBfirst.Services;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
-using Microsoft.AspNetCore.OData;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,7 +33,7 @@ IEdmModel GetEdmModel()
 builder.Services.AddControllers()
     .AddOData(options => options.Select().Filter().OrderBy().Expand().SetMaxTop(100)
     .AddRouteComponents("odata", GetEdmModel())
-    .Count()); 
+    .Count());
 builder.Services.AddControllersWithViews();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -60,7 +58,7 @@ builder.Services.AddSingleton<EmailService>();
 
 var key = Encoding.ASCII.GetBytes(builder.Configuration.GetSection("JwtConfig:Secret").Value);
 
-var tokenValidationParameter  = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+var tokenValidationParameter = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
 {
     ValidateIssuerSigningKey = true,
     IssuerSigningKey = new SymmetricSecurityKey(key),
@@ -82,6 +80,8 @@ builder.Services.AddAuthentication(options =>
         jwt.TokenValidationParameters = tokenValidationParameter;
     });
 builder.Services.AddSingleton(tokenValidationParameter);
+
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<Project_B5DBContext>();

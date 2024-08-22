@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\dataaccess\\project_b5dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\dataaccess\\project_b5dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\controllers\\evaluationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\evaluationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\helper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\models\\evaluation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\models\\evaluation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\data\\dtos\\evaluationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\data\\dtos\\evaluationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,6 +33,30 @@
     {
       "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\dataaccess\\project_b5dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\dataaccess\\project_b5dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\data\\dtos\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\data\\dtos\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\models\\studentdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\models\\studentdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\models\\studentsubject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\models\\studentsubject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\asus\\desktop\\prn231_block5_group1\\group1\\dbfirst\\models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,73 +66,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 12,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Project_B5DBContext.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DataAccess\\Project_B5DBContext.cs",
-              "RelativeDocumentMoniker": "DBfirst\\DataAccess\\Project_B5DBContext.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DataAccess\\Project_B5DBContext.cs",
-              "RelativeToolTip": "DBfirst\\DataAccess\\Project_B5DBContext.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAYwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T01:14:01.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StudentsController.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentsController.cs",
-              "RelativeDocumentMoniker": "DBfirst\\Controllers\\StudentsController.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentsController.cs",
-              "RelativeToolTip": "DBfirst\\Controllers\\StudentsController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T01:13:44.735Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StudentController.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentController.cs",
-              "RelativeDocumentMoniker": "DBfirst\\Controllers\\StudentController.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentController.cs",
-              "RelativeToolTip": "DBfirst\\Controllers\\StudentController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAgwBUAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T01:11:46.184Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Program.cs",
-              "RelativeDocumentMoniker": "DBfirst\\Program.cs",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Program.cs",
-              "RelativeToolTip": "DBfirst\\Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T01:11:13.498Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\appsettings.json",
-              "RelativeDocumentMoniker": "DBfirst\\appsettings.json",
-              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\appsettings.json",
-              "RelativeToolTip": "DBfirst\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-22T01:10:58.245Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
@@ -104,6 +75,188 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Project_B5DBContext.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DataAccess\\Project_B5DBContext.cs",
+              "RelativeDocumentMoniker": "DBfirst\\DataAccess\\Project_B5DBContext.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DataAccess\\Project_B5DBContext.cs",
+              "RelativeToolTip": "DBfirst\\DataAccess\\Project_B5DBContext.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAswAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:43:51.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Subject.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\Subject.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Models\\Subject.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\Subject.cs",
+              "RelativeToolTip": "DBfirst\\Models\\Subject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:34:51.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Evaluation.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\Evaluation.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Models\\Evaluation.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\Evaluation.cs",
+              "RelativeToolTip": "DBfirst\\Models\\Evaluation.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:34:48.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "StudentSubject.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\StudentSubject.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Models\\StudentSubject.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\StudentSubject.cs",
+              "RelativeToolTip": "DBfirst\\Models\\StudentSubject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:34:47.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StudentDetail.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\StudentDetail.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Models\\StudentDetail.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\StudentDetail.cs",
+              "RelativeToolTip": "DBfirst\\Models\\StudentDetail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:34:45.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Models\\Student.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\Student.cs",
+              "RelativeToolTip": "DBfirst\\Models\\Student.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAzwBMAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:34:31.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StudentDTO.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Data\\DTOs\\StudentDTO.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Data\\DTOs\\StudentDTO.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Data\\DTOs\\StudentDTO.cs",
+              "RelativeToolTip": "DBfirst\\Data\\DTOs\\StudentDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:34:26.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Helper\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Helper\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Helper\\MappingProfile.cs",
+              "RelativeToolTip": "DBfirst\\Helper\\MappingProfile.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:31:00.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Teacher.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\Teacher.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Models\\Teacher.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Models\\Teacher.cs",
+              "RelativeToolTip": "DBfirst\\Models\\Teacher.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:22:39.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EvaluationDTO.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Data\\DTOs\\EvaluationDTO.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Data\\DTOs\\EvaluationDTO.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Data\\DTOs\\EvaluationDTO.cs",
+              "RelativeToolTip": "DBfirst\\Data\\DTOs\\EvaluationDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:18:40.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EvaluationsController.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\EvaluationsController.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Controllers\\EvaluationsController.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\EvaluationsController.cs",
+              "RelativeToolTip": "DBfirst\\Controllers\\EvaluationsController.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAYwAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:15:31.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentsController.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentsController.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Controllers\\StudentsController.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentsController.cs",
+              "RelativeToolTip": "DBfirst\\Controllers\\StudentsController.cs",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAwwHgAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:14:33.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\appsettings.json",
+              "RelativeDocumentMoniker": "DBfirst\\appsettings.json",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\appsettings.json",
+              "RelativeToolTip": "DBfirst\\appsettings.json",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAuwA0AAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-22T02:08:24.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Program.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Program.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Program.cs",
+              "RelativeToolTip": "DBfirst\\Program.cs",
+              "ViewState": "AQIAADoAAAAAAAAAAAAIwEMAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:07:55.86Z",
+              "EditorCaption": ""
             }
           ]
         }

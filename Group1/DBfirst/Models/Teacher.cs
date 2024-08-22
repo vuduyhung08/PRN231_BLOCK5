@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DBfirst.Models
+﻿namespace DBfirst.Models
 {
     public partial class Teacher
     {

@@ -1,12 +1,10 @@
 ﻿using DBfirst.DataAccess;
 using DBfirst.Models;
 using DBfirst.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Results;
 using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace DBfirst.Controllers
 {
@@ -31,7 +29,8 @@ namespace DBfirst.Controllers
                 .Include(s => s.Evaluations)
                 .Where(s => s.User.Email != null)
                 .ToList();
-            foreach (Student student in students){
+            foreach (Student student in students)
+            {
                 await _emailService.SendGradeAsync(student.User.Email, student);
             }
             return Ok("Send grade to all students successfully!");
@@ -39,11 +38,11 @@ namespace DBfirst.Controllers
 
         [HttpGet]
         [EnableQuery]
-        public IQueryable<EvaluationDTO> Get()
+        public IQueryable<EvaluationDTOs> Get()
         {
             return _context.Evaluations
                            .Include(e => e.Student)
-                           .Select(e => new EvaluationDTO
+                           .Select(e => new EvaluationDTOs
                            {
                                EvaluationId = e.EvaluationId,
                                Grade = e.Grade,
@@ -54,7 +53,7 @@ namespace DBfirst.Controllers
                            .AsQueryable();
         }
 
-        public class EvaluationDTO
+        public class EvaluationDTOs
         {
             public int EvaluationId { get; set; }
             public int Grade { get; set; }
