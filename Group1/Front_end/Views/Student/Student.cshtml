@@ -21,7 +21,11 @@
                     <td>@cls.TeacherId</td>
                     <td>@cls.SubjectId</td>
                     <td>
+<<<<<<< HEAD
                         <a href="@Url.Action("FeedBack", "Student", new { studentId = 10, classId = cls.ClassId })">FeedBack</a>
+=======
+                        <a href="@Url.Action("FeedBack", "Student", new { studentId = ViewBag.StudentId, classId = cls.ClassId })">FeedBack</a>
+>>>>>>> Khang
                     </td>
                 </tr>
             }
