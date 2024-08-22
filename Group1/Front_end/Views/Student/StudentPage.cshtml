@@ -115,6 +115,7 @@
             <td colspan="2" class="actions">
                 <button onclick="viewScore()">View Score</button>
                 <button onclick="updateProfile()">Update Profile</button>
+                <button onclick="redirectToPage()">Class</button>
             </td>
         </tr>
     </tbody>
@@ -136,14 +137,63 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
 <script>
+    const redirectToPage = () => {
+        const studentId = $("#studentId").val();
+        if (!studentId) {
+            alert("Student ID is missing.");
+            return;
+        }
+
+        // Redirect to the Class page with the StudentId
+        window.location.href = `@Url.Action("Student", "Student")?studentId=${studentId}`;
+    };
+    function getCookie(name) {
+        const cookieArr = document.cookie.split(";");
+
+        for (let i = 0; i < cookieArr.length; i++) {
+            let cookie = cookieArr[i].trim();
+            if (cookie.startsWith(name + "=")) {
+                return cookie.substring(name.length + 1);
+            }
+        }
+
+        return null;
+    }
+
+    function parseJwt(token) {
+        let base64Url = token.split('.')[1];
+
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+
+        let jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+        return JSON.parse(jsonPayload);
+    }
+
+
     $(document).ready(() => {
-        GetStudentProfile();
+        const jwtToken = getCookie("JwtToken");
+        if (jwtToken) {
+            const decodedToken = parseJwt(jwtToken);
+            const userId = decodedToken.Id;
+            GetStudentProfile(userId);
+        }
+        else 
+        {
+            window.location.href = 'http://localhost:5050/NotFound';
+        }
     });
 
-    const GetStudentProfile = () => {
+    const GetStudentProfile = (userId) => {
+        const jwtToken = getCookie("JwtToken");
         $.ajax({
-            url: 'http://localhost:5224/api/Students/1',
+            url: `http://localhost:5224/api/Students/${userId}`,
             type: "GET",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+            },
             headers: {
                 "Content-Type": "application/json",
             },
@@ -172,10 +222,14 @@
             alert("Student ID is missing.");
             return;
         }
+        const jwtToken = getCookie("JwtToken");
 
         $.ajax({
             url: `http://localhost:5224/api/Students/${studentId}/scores`,
             type: "GET",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+            },
             headers: {
                 "Content-Type": "application/json",
             },
@@ -221,10 +275,14 @@
                 additionalInformation: $("#additionalInformation").val()
             }]
         };
+        const jwtToken = getCookie("JwtToken");
 
         $.ajax({
             url: `http://localhost:5224/api/Students/${studentId}`,
             type: "PUT",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+            },
             headers: {
                 "Content-Type": "application/json",
             },

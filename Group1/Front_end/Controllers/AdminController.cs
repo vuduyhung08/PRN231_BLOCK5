@@ -2,6 +2,9 @@
 using DBfirst.Models;
 using Front_end.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 
@@ -11,36 +14,166 @@ namespace Front_end.Controllers
     {
         public IActionResult Dashboard()
         {
-            return View();
+            var jwtToken = Request.Cookies["JwtToken"];
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.UTF8.GetBytes("hiUAHSDUIOHIAOHUIOhihaiosdhf8uh29873yh9dsahfjkasldnf28937rhjasknfasdu9fh908ujnfkdlsanf81237949yhHNFAKJDNF0849HTFNL");
+                tokenHandler.ValidateToken(jwtToken, new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                }, out SecurityToken validatedToken);
+
+                var jwtToken2 = (JwtSecurityToken)validatedToken;
+                var userRole = jwtToken2.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+
+                if (userRole != "Adminstrator")
+                {
+                    return Unauthorized();
+                }
+
+                return View();
+            }
+            catch
+            {
+                return Unauthorized();
+            }
         }
 
         public IActionResult ManageActiveStatus()
         {
-            return View();
+            var jwtToken = Request.Cookies["JwtToken"];
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.UTF8.GetBytes("hiUAHSDUIOHIAOHUIOhihaiosdhf8uh29873yh9dsahfjkasldnf28937rhjasknfasdu9fh908ujnfkdlsanf81237949yhHNFAKJDNF0849HTFNL");
+                tokenHandler.ValidateToken(jwtToken, new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                }, out SecurityToken validatedToken);
+
+                var jwtToken2 = (JwtSecurityToken)validatedToken;
+                var userRole = jwtToken2.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+
+                if (userRole != "Adminstrator")
+                {
+                    return Unauthorized();
+                }
+
+                return View();
+            }
+            catch
+            {
+                return Unauthorized();
+            }
         }
 
         public IActionResult ManageStudent()
         {
-            return View();
+            var jwtToken = Request.Cookies["JwtToken"];
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.UTF8.GetBytes("hiUAHSDUIOHIAOHUIOhihaiosdhf8uh29873yh9dsahfjkasldnf28937rhjasknfasdu9fh908ujnfkdlsanf81237949yhHNFAKJDNF0849HTFNL");
+                tokenHandler.ValidateToken(jwtToken, new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                }, out SecurityToken validatedToken);
+
+                var jwtToken2 = (JwtSecurityToken)validatedToken;
+                var userRole = jwtToken2.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+
+                if (userRole != "Adminstrator")
+                {
+                    return Unauthorized();
+                }
+
+                return View();
+            }
+            catch
+            {
+                return Unauthorized();
+            }
         }
         public IActionResult Index()
         {
-            return View();
+            var jwtToken = Request.Cookies["JwtToken"];
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.UTF8.GetBytes("hiUAHSDUIOHIAOHUIOhihaiosdhf8uh29873yh9dsahfjkasldnf28937rhjasknfasdu9fh908ujnfkdlsanf81237949yhHNFAKJDNF0849HTFNL");
+                tokenHandler.ValidateToken(jwtToken, new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                }, out SecurityToken validatedToken);
+
+                var jwtToken2 = (JwtSecurityToken)validatedToken;
+                var userRole = jwtToken2.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+
+                if (userRole != "Adminstrator")
+                {
+                    return Unauthorized();
+                }
+
+                return View();
+            }
+            catch
+            {
+                return Unauthorized();
+            }
         }
         private readonly string _rootUrl;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AdminController(IConfiguration configuration)
+        public AdminController(IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
         {
             _rootUrl = configuration.GetSection("ApiUrls")["MyApi"];
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        // GET: /Admin
-        public IActionResult Admin()
+        private string GetTokenFromCookie()
         {
-            return View();
+            // Get the JWT token from the cookie
+            return _httpContextAccessor.HttpContext.Request.Cookies["JwtToken"];
         }
 
-        // GET: /Admin/Class
+        //Admin/Class
         [HttpGet]
         public async Task<IActionResult> Class()
         {
@@ -48,6 +181,13 @@ namespace Front_end.Controllers
 
             using HttpClient httpClient = new HttpClient();
             string url = $"{_rootUrl}Class";
+
+            string token = GetTokenFromCookie();
+            if (!string.IsNullOrEmpty(token))
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
             HttpResponseMessage response = await httpClient.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
@@ -58,13 +198,19 @@ namespace Front_end.Controllers
             return View();
         }
 
-        // POST: /Admin/Class
+        //Admin/Class
         [HttpPost]
         public async Task<IActionResult> Class(Class newClass)
         {
             using HttpClient httpClient = new HttpClient();
             string url = $"{_rootUrl}Class";
             var jsonContent = new StringContent(JsonSerializer.Serialize(newClass), Encoding.UTF8, "application/json");
+
+            string token = GetTokenFromCookie();
+            if (!string.IsNullOrEmpty(token))
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
 
             HttpResponseMessage response = await httpClient.PostAsync(url, jsonContent);
 
@@ -82,14 +228,18 @@ namespace Front_end.Controllers
             }
         }
 
-        // GET: /Admin/AddStudentClass
+        //Admin/AddStudentClass
         [HttpGet]
         public async Task<IActionResult> AddStudentClass()
         {
             using HttpClient httpClient = new HttpClient();
 
-            // Fetch students
             string studentUrl = $"{_rootUrl}Students";
+            string token = GetTokenFromCookie();
+            if (!string.IsNullOrEmpty(token))
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
             HttpResponseMessage studentResponse = await httpClient.GetAsync(studentUrl);
             List<Student> students = new List<Student>();
             if (studentResponse.IsSuccessStatusCode)
@@ -113,7 +263,7 @@ namespace Front_end.Controllers
             return View();
         }
 
-        // POST: /Admin/AddStudentClass
+        //Admin/AddStudentClass
         [HttpPost]
         public async Task<IActionResult> AddStudentClass(int studentId, int classId)
         {
@@ -127,6 +277,12 @@ namespace Front_end.Controllers
             string url = $"{_rootUrl}Students/AddStudentClass";
             var jsonContent = new StringContent(JsonSerializer.Serialize(request), Encoding.UTF8, "application/json");
 
+            string token = GetTokenFromCookie();
+            if (!string.IsNullOrEmpty(token))
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
+
             HttpResponseMessage response = await httpClient.PostAsync(url, jsonContent);
             if (response.IsSuccessStatusCode)
             {
@@ -137,7 +293,7 @@ namespace Front_end.Controllers
                 ViewBag.ResponseMessage = $"Error: {response.ReasonPhrase}";
             }
 
-            return await AddStudentClass(); // Re-fetch students and classes for the view
+            return await AddStudentClass();
         }
     }
 }

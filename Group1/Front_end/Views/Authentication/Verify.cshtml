@@ -42,7 +42,7 @@
                 success: function (response) {
                     $("#loading-overlay").hide();
                     localStorage.removeItem('registeredEmail');
-                    window.location.href = 'http://localhost:5050';
+                    window.location.href = 'http://localhost:5050/Users/Login';
                 },
                 error: function (xhr, status, error) {
                     let errorMessage = 'An error occurred.';

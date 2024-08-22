@@ -1,15 +1,23 @@
 ﻿$(document).ready(function () {
-    const apiUrl = 'http://localhost:5224/api/Subject';
-    let existingSubjects = [];
+    const jwtToken = getCookie("JwtToken");
+    console.log(jwtToken);
 
+    if (!jwtToken) {
+        alert('Authorization token not found.');
+        return;
+    }
+
+    // Function to load subjects and display them in the table
     function loadSubjects() {
         $.ajax({
-            url: `${apiUrl}/viewallsubject`,
-            type: 'GET',
+            url: 'http://localhost:5224/api/Subjects/viewallsubject',
+            method: 'GET',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+            },
             success: function (data) {
-                existingSubjects = data; // Store existing subjects for client-side validation
                 const tableBody = $('#subjects-table tbody');
-                tableBody.empty();
+                tableBody.empty(); // Clear the table before appending new data
                 data.forEach(subject => {
                     tableBody.append(`
                         <tr data-id="${subject.subjectId}">
@@ -22,58 +30,76 @@
                     `);
                 });
             },
-            error: function () {
-                alert('Failed to load subjects.');
+            error: function (xhr, status, error) {
+                console.error("Error with API call: ", error);
+                if (xhr.status === 401) {
+                    alert('You do not have the required permissions to access this resource.');
+                } else {
+                    alert('Failed to load subjects.');
+                }
             }
         });
     }
 
+    // Load subjects on page load
     loadSubjects();
 
-    // Add or Edit Subject
+    // Handle the submission of the Add/Edit form
     $('#subject-form').on('submit', function (e) {
         e.preventDefault();
+
         const subjectId = $('#subjectId').val();
         const subjectName = $('#subjectName').val().trim();
 
-        // Client-side validation: Check if the subject name already exists
-        if (existingSubjects.some(subject => subject.subjectName.toLowerCase() === subjectName.toLowerCase() && subject.subjectId != subjectId)) {
-            alert('A subject with this name already exists.');
+        if (!subjectName) {
+            alert("Subject name is required.");
             return;
         }
 
-        const url = subjectId ? `${apiUrl}/editsubject?id=${subjectId}` : `${apiUrl}/addsubject`;
-        const type = subjectId ? 'PUT' : 'POST';
+        // Determine the API endpoint and method based on whether we're adding or editing
+        const url = subjectId ? `http://localhost:5224/api/Subjects/editsubject?id=${subjectId}` : `http://localhost:5224/api/Subjects/addsubject`;
+        const method = subjectId ? 'PUT' : 'POST';
+
+        // Prepare the data to be sent
+        const requestData = subjectId ? subjectName : JSON.stringify({ subjectName: subjectName });
 
         $.ajax({
             url: url,
-            type: type,
+            method: method,
             contentType: 'application/json',
-            data: JSON.stringify(subjectName),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+            },
+            data: requestData,
             success: function () {
-                $('#subject-form')[0].reset();
-                $('#subjectId').val('');
-                $('#form-title').text('Add Subject');
-                loadSubjects();
+                $('#subject-form')[0].reset(); // Clear the form
+                $('#subjectId').val(''); // Clear hidden subject ID
+                $('#form-title').text('Add Subject'); // Reset form title
+                loadSubjects(); // Reload the subject list
             },
             error: function (xhr) {
                 let errorMessage = 'Failed to save subject.';
-
                 if (xhr.status === 409) { // Conflict status code for duplicate subject
                     errorMessage = 'A subject with this name already exists.';
+                } else if (xhr.status === 401) { // Unauthorized
+                    errorMessage = 'You do not have the required permissions to perform this action.';
+                } else if (xhr.status === 400) { // Bad Request
+                    errorMessage = 'Bad Request: ' + xhr.responseText;
+                } else if (xhr.status === 404) { // Not Found
+                    errorMessage = 'The subject was not found.';
                 }
-
                 alert(errorMessage);
             }
         });
     });
 
-    // Edit Button Click
+    // Handle the Edit button click
     $('#subjects-table').on('click', '.edit-btn', function () {
         const row = $(this).closest('tr');
         const subjectId = row.data('id');
         const subjectName = row.find('td:eq(1)').text();
 
+        // Populate the form for editing
         $('#subjectId').val(subjectId);
         $('#subjectName').val(subjectName);
         $('#form-title').text('Edit Subject');

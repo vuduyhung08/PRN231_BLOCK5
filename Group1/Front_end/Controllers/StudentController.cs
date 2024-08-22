@@ -1,21 +1,68 @@
 ﻿using DBfirst.Data.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http.Headers;
+using System.Security.Claims;
+using System.Text;
 using System.Text.Json;
 
 namespace Front_end.Controllers
 {
     public class StudentController : Controller
     {
+
         public IActionResult StudentPage()
         {
-            return View();
+            var jwtToken = Request.Cookies["JwtToken"];
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized(); 
+            }
+
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.UTF8.GetBytes("hiUAHSDUIOHIAOHUIOhihaiosdhf8uh29873yh9dsahfjkasldnf28937rhjasknfasdu9fh908ujnfkdlsanf81237949yhHNFAKJDNF0849HTFNL");
+                tokenHandler.ValidateToken(jwtToken, new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                }, out SecurityToken validatedToken);
+
+                var jwtToken2 = (JwtSecurityToken)validatedToken;
+                var userRole = jwtToken2.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+
+                if (userRole != "Student") 
+                {
+                    return Unauthorized(); 
+                }
+
+                return View();
+            }
+            catch
+            {
+                return Unauthorized(); 
+            }
         }
 
         private readonly string _rootUrl;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public StudentController(IConfiguration configuration)
+        public StudentController(IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
         {
             _rootUrl = configuration.GetSection("ApiUrls")["MyApi"];
+            _httpContextAccessor = httpContextAccessor;
+        }
+
+        private string GetTokenFromCookie()
+        {
+            // Get the JWT token from the cookie
+            return _httpContextAccessor.HttpContext.Request.Cookies["JwtToken"];
         }
 
         public async Task<IActionResult> Student(int studentId)
@@ -23,7 +70,12 @@ namespace Front_end.Controllers
             List<ClassDTO> classes = new List<ClassDTO>();
             using (HttpClient httpClient = new HttpClient())
             {
-                string url = $"{_rootUrl}Students/student/10/classes";
+                string url = $"{_rootUrl}Students/student/{studentId}/classes";
+                string token = GetTokenFromCookie();
+                if (!string.IsNullOrEmpty(token))
+                {
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                }
                 HttpResponseMessage response = await httpClient.GetAsync(url);
                 response.EnsureSuccessStatusCode();
 
@@ -42,8 +94,12 @@ namespace Front_end.Controllers
                     }
                 }
             }
+
+            ViewBag.StudentId = studentId;
             return View(classes);
         }
+
+
 
 
         [HttpGet]
@@ -71,6 +127,11 @@ namespace Front_end.Controllers
                 });
 
                 string url = $"{_rootUrl}Students/feedback/{studentId}/{classId}";
+                string token = GetTokenFromCookie();
+                if (!string.IsNullOrEmpty(token))
+                {
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                }
                 HttpResponseMessage response = await httpClient.PostAsync(url, formContent);
 
                 if (response.IsSuccessStatusCode)

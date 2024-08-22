@@ -24,6 +24,7 @@ using DBfirst.Services;
 using Org.BouncyCastle.Asn1.Ocsp;
 using DBfirst.Models;
 using System.Security.Cryptography;
+using Microsoft.AspNetCore.WebUtilities;
 
 namespace DBfirst.Controllers
 {
@@ -38,11 +39,12 @@ namespace DBfirst.Controllers
         private readonly IEmailHelper _emailHelper;
         private readonly IEmailTemplateReader _emailTemplateReader;
         private readonly EmailService _emailService;
+        private readonly RoleManager<IdentityRole> _roleManager;
         //private readonly JwtConfig _jwtConfig;
 
         public AuthenticationController(UserManager<IdentityUser> userManager, IConfiguration configuration,
             Project_B5DBContext context, TokenValidationParameters tokenValidationParameters, IEmailHelper emailHelper,
-            IEmailTemplateReader emailTemplateReader, EmailService emailService)
+            IEmailTemplateReader emailTemplateReader, EmailService emailService, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _configuration = configuration;
@@ -51,6 +53,7 @@ namespace DBfirst.Controllers
             _emailHelper = emailHelper;
             _emailTemplateReader = emailTemplateReader;
             _emailService = emailService;
+            _roleManager = roleManager;
             //_jwtConfig = jwtConfig;
         }
 
@@ -88,8 +91,21 @@ namespace DBfirst.Controllers
                 var isCreated = await _userManager.CreateAsync(newUser, request.Password);
                 if (isCreated.Succeeded)
                 {
-                    await _emailService.SendEmailAsync(newUser.Email, newUser.ActiveCode);
-                    return Ok("User created successfully!");
+                    var userRole = await _userManager.AddToRoleAsync(newUser, "Student");
+                    if (userRole.Succeeded)
+                    {
+                        await _emailService.SendEmailAsync(newUser.Email, newUser.ActiveCode);
+                        return Ok("User created successfully!");
+                    }
+                    else
+                    {
+                        var errorMessages = string.Join(", ", isCreated.Errors.Select(e => e.Description));
+                        return BadRequest(new AuthResult()
+                        {
+                            Errors = new List<string> { $"Server error: {errorMessages}" },
+                            Result = false
+                        });
+                    }
                 }
                 else
                 {
@@ -98,7 +114,7 @@ namespace DBfirst.Controllers
                     {
                         Errors = new List<string> { $"Server error: {errorMessages}" },
                         Result = false
-                    });                    
+                    });
                 }
             }
             return BadRequest();
@@ -108,12 +124,12 @@ namespace DBfirst.Controllers
         public async Task<IActionResult> ConfirmEmail([FromBody] UserVerifyRequestDto request)
         {
             var user = _context.User.FirstOrDefault(s => s.Email == request.Email);
-            if(user == null)
+            if (user == null)
             {
                 return BadRequest("Account isn't exist in the system");
             }
 
-            if(user.EmailConfirmed)
+            if (user.EmailConfirmed)
             {
                 return Ok("The email has already been confirmed");
             }
@@ -121,57 +137,97 @@ namespace DBfirst.Controllers
             {
                 user.ActiveCode = null;
                 user.EmailConfirmed = true;
+                Student student = new Student
+                {
+                    Name = user.UserName,
+                    AccountId = user.Id
+                };
+                _context.Students.Add(student);
                 _context.User.Update(user);
-                _context.SaveChanges(); 
+                _context.SaveChanges();
                 return Ok("Your account has been activated");
             }
             return BadRequest("Confirm email failed");
+        }
+
+        [HttpGet("forget-password")]
+        public async Task<IActionResult> ForgetPassword(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user is null)
+            {
+                return BadRequest("Account is exist in the system");
+            }
+            string host = _configuration.GetValue<string>("ApplicationUrl");
+
+            string tokenConfirm = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            string encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(tokenConfirm));
+            string resetPasswordUrl = $"{host}Users/ResetPassword?email={email}&token={encodedToken}";
+
+            string body = $"Please reset your password by clicking here: <a href=\"{resetPasswordUrl}\">link</a>";
+
+            await _emailHelper.SendEmailAsync(new EmailRequest
+            {
+                To = user.Email,
+                Subject = "Reset Password",
+                Content = body
+            });
+
+            return Ok("Please check your email");
+        }
+
+
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
+        {
+            var user = await _userManager.FindByEmailAsync(resetPasswordDto.Email);
+            if (user is null)
+            {
+                return BadRequest("Email does not exist");
+            }
+            if (string.IsNullOrEmpty(resetPasswordDto.Token))
+            {
+                return BadRequest("Token is invalid");
+            }
+
+            string decodedToken = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(resetPasswordDto.Token));
+
+            var identityResult = await _userManager.ResetPasswordAsync(user, decodedToken, resetPasswordDto.Password);
+
+            if (identityResult.Succeeded)
+            {
+                return Ok("Reset password successful");
+            }
+            else
+            {
+                var errorMessage = identityResult.Errors.FirstOrDefault()?.Description ?? "Reset password failed";
+                return BadRequest(errorMessage);
+            }
         }
 
         [Route("Login")]
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] UserLoginRequestDto loginRequest)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var existingUser = await _userManager.FindByEmailAsync(loginRequest.Email);
-                if(existingUser == null)
+                if (existingUser == null)
                 {
                     return BadRequest(new AuthResult()
                     {
-                        Errors = new List<string>
-                        {
-                            "Invalid payload"
-                        },
+                        Errors = new List<string> { "Invalid payload" },
                         Result = false
                     });
                 }
 
-                if(!existingUser.EmailConfirmed)
+                if (!existingUser.EmailConfirmed)
                 {
                     return BadRequest(new AuthResult()
                     {
-                        Errors = new List<string>
-                        {
-                            "Email needs to be confirmed"
-                        },
-                        Result = false
-                    });
-                }
-
-                var isActive = await _context.User
-            .Where(u => u.Id == existingUser.Id)
-            .Select(u => u.IsActive)
-            .FirstOrDefaultAsync();
-
-                if (isActive.HasValue && !isActive.Value)
-                {
-                    return BadRequest(new AuthResult()
-                    {
-                        Errors = new List<string>
-                            {
-                                "Access denied"
-                            },
+                        Errors = new List<string> { "Email needs to be confirmed" },
                         Result = false
                     });
                 }
@@ -181,41 +237,43 @@ namespace DBfirst.Controllers
                 {
                     return BadRequest(new AuthResult()
                     {
-                        Errors = new List<string>
-                            {
-                                "Invalid credentials"
-                            },
+                        Errors = new List<string> { "Invalid credentials" },
                         Result = false
                     });
                 }
-                var jwtToken = await GenerateJwtToken(existingUser);
 
-                return Ok(jwtToken);
+                var authResult = await GenerateJwtToken(existingUser);
+                authResult.Roles = await _userManager.GetRolesAsync(existingUser);
+
+                return Ok(authResult);
             }
+
             return BadRequest(new AuthResult()
             {
-                Errors = new List<string>
-                {
-                    "Invalid payload"
-                },
+                Errors = new List<string> { "Invalid payload" },
                 Result = false
-            }); 
+            });
         }
         private async Task<AuthResult> GenerateJwtToken(IdentityUser user)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(_configuration.GetSection("JwtConfig:Secret").Value);
 
+            var userRoles = await _userManager.GetRolesAsync(user);
+            var roleClaims = userRoles.Select(role => new Claim(ClaimTypes.Role, role)).ToList();
+
+            var claims = new List<Claim>
+            {
+                new Claim("Id", user.Id),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToString()),
+            }.Concat(roleClaims);
+
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim("Id", user.Id),
-                    new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                    new Claim(JwtRegisteredClaimNames.Email, value:user.Email),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToString()),
-                }),
+                Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.Add(TimeSpan.Parse(_configuration.GetSection("JwtConfig:ExpiryTimeFrame").Value)),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
             };
@@ -236,23 +294,22 @@ namespace DBfirst.Controllers
             await _context.RefreshTokens.AddAsync(refreshToken);
             await _context.SaveChangesAsync();
 
-            var result = new AuthResult()
+            return new AuthResult()
             {
                 Token = jwtToken,
                 RefreshToken = refreshToken.Token,
                 Result = true
             };
-            return result;
         }
 
         [HttpPost]
         [Route("RefreshToken")]
         public async Task<IActionResult> RefreshToken([FromBody] TokenRequest tokenRequest)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var result = await VerifyAndGenerateToken(tokenRequest);
-                if(result == null)
+                if (result == null)
                 {
                     return BadRequest(new AuthResult()
                     {

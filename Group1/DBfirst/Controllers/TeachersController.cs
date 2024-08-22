@@ -1,5 +1,7 @@
-﻿using DBfirst.DataAccess;
+﻿using DBfirst.Data.Roles;
+using DBfirst.DataAccess;
 using DBfirst.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.AspNetCore.OData.Query;
@@ -20,6 +22,7 @@ namespace DBfirst.Controllers
 
         [HttpGet]
         [EnableQuery]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult Get()
         {
             if (_context.Teachers == null)
@@ -31,6 +34,7 @@ namespace DBfirst.Controllers
         }
 
         [HttpPost("create")]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<ActionResult<Teacher>> CreateTeacher(TeacherPostDTO teacher)
         {
             if (!ModelState.IsValid)
@@ -54,6 +58,7 @@ namespace DBfirst.Controllers
         }
 
         [HttpPut("edit/{id}")]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult PutById([FromRoute] int id, [FromBody] TeacherPostDTO teacherDto)
         {
             if (teacherDto == null || !ModelState.IsValid)
@@ -100,6 +105,7 @@ namespace DBfirst.Controllers
         }
 
         [HttpDelete("delete/{id}")]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult DeleteById([FromRoute] int id)
         {
             var teacher = _context.Teachers.Find(id);
@@ -115,6 +121,7 @@ namespace DBfirst.Controllers
         }
 
         [HttpPost("ChangeSubject")]
+        [Authorize(Roles = AppRole.Teacher)]
         public IActionResult ChangeSubject([FromODataUri] int teacherId, [FromForm] int subjectId)
         {
             var teacher = _context.Teachers.SingleOrDefault(t => t.TeacherId == teacherId);

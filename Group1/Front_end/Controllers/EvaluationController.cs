@@ -1,6 +1,7 @@
 ﻿using DBfirst.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace Front_end.Controllers
@@ -20,10 +21,12 @@ namespace Front_end.Controllers
         // GET: Evaluations
         public async Task<IActionResult> Index()
         {
+            var jwtToken = Request.Cookies["JwtToken"];
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
             var response = await _httpClient.GetAsync(_apiUrl);
             if (!response.IsSuccessStatusCode)
             {
-                return View("Error");
+                return Unauthorized();
             }
 
             var jsonString = await response.Content.ReadAsStringAsync();
@@ -36,12 +39,14 @@ namespace Front_end.Controllers
         // GET: Evaluations/Create
         public async Task<IActionResult> Create()
         {
+            var jwtToken = Request.Cookies["JwtToken"];
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
             var subjects = await FetchSubjectsAsync();
             var students = await FetchStudentsAsync();
 
             if (subjects == null || !subjects.Any() || students == null || !students.Any())
             {
-                return View("Error"); // Hoặc xử lý lỗi theo cách khác
+                return Unauthorized();
             }
 
             var model = new CreateEditEvaluationDTO
@@ -56,10 +61,12 @@ namespace Front_end.Controllers
         // GET: Evaluations/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
+            var jwtToken = Request.Cookies["JwtToken"];
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
             var response = await _httpClient.GetAsync($"{_apiUrl}/{id}");
             if (!response.IsSuccessStatusCode)
             {
-                return View("Error");
+                return Unauthorized();
             }
 
             var jsonString = await response.Content.ReadAsStringAsync();
@@ -70,7 +77,7 @@ namespace Front_end.Controllers
 
             if (evaluation == null || subjects == null || students == null)
             {
-                return View("Error");
+                return Unauthorized();
             }
 
             var model = new CreateEditEvaluationDTO
@@ -88,6 +95,8 @@ namespace Front_end.Controllers
         // Method to fetch subjects
         private async Task<IEnumerable<Subject>> FetchSubjectsAsync()
         {
+            var jwtToken = Request.Cookies["JwtToken"];
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
             var response = await _httpClient.GetAsync(_subjectsApiUrl);
             if (!response.IsSuccessStatusCode)
             {
@@ -101,6 +110,8 @@ namespace Front_end.Controllers
         // Method to fetch students
         private async Task<IEnumerable<Student>> FetchStudentsAsync()
         {
+            var jwtToken = Request.Cookies["JwtToken"];
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
             var response = await _httpClient.GetAsync(_studentsApiUrl);
             if (!response.IsSuccessStatusCode)
             {
