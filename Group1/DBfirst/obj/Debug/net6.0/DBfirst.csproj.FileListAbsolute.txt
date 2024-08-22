@@ -590,3 +590,5 @@ C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\refin
 C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.pdb
 C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.genruntimeconfig.cache
 C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\ref\DBfirst.dll
+C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
