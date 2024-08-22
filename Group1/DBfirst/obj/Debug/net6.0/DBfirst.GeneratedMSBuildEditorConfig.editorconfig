@@ -9,15 +9,15 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DBfirst
 build_property.RootNamespace = DBfirst
-build_property.ProjectDir = D:\PRN231\PRN231_BLOCK5_GROUP1\Group1\DBfirst\
+build_property.ProjectDir = C:\Users\khang\OneDrive\Desktop\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\PRN231\PRN231_BLOCK5_GROUP1\Group1\DBfirst
+build_property.MSBuildProjectDirectory = C:\Users\khang\OneDrive\Desktop\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/PRN231/PRN231_BLOCK5_GROUP1/Group1/DBfirst/Views/NotificationEmailConfirm.cshtml]
+[C:/Users/khang/OneDrive/Desktop/GitHub/PRN231_BLOCK5_GROUP1/Group1/DBfirst/Views/NotificationEmailConfirm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2F0aW9uRW1haWxDb25maXJtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
