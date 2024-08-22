@@ -22,6 +22,22 @@ namespace DBfirst.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("ClassStudent", b =>
+                {
+                    b.Property<int>("ClassId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ClassId", "StudentId")
+                        .HasName("PK__ClassStu__48357579D7EF40EA");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("ClassStudent", (string)null);
+                });
+
             modelBuilder.Entity("DBfirst.Data.RefreshToken", b =>
                 {
                     b.Property<int>("Id")
@@ -59,6 +75,34 @@ namespace DBfirst.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
+            modelBuilder.Entity("DBfirst.Models.Class", b =>
+                {
+                    b.Property<int>("ClassId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClassId"), 1L, 1);
+
+                    b.Property<string>("ClassName")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeacherId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ClassId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.HasIndex("TeacherId");
+
+                    b.ToTable("Class", (string)null);
+                });
+
             modelBuilder.Entity("DBfirst.Models.Evaluation", b =>
                 {
                     b.Property<int>("EvaluationId")
@@ -82,6 +126,41 @@ namespace DBfirst.Migrations
                     b.HasIndex("StudentId");
 
                     b.ToTable("Evaluation", (string)null);
+                });
+
+            modelBuilder.Entity("DBfirst.Models.Feedback", b =>
+                {
+                    b.Property<int>("FeedbackId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeedbackId"), 1L, 1);
+
+                    b.Property<int>("ClassId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<string>("FeedbackText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FeedbackId");
+
+                    b.HasIndex("ClassId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("Feedback", (string)null);
                 });
 
             modelBuilder.Entity("DBfirst.Models.Student", b =>
@@ -427,11 +506,64 @@ namespace DBfirst.Migrations
                     b.HasDiscriminator().HasValue("User");
                 });
 
+            modelBuilder.Entity("ClassStudent", b =>
+                {
+                    b.HasOne("DBfirst.Models.Class", null)
+                        .WithMany()
+                        .HasForeignKey("ClassId")
+                        .IsRequired()
+                        .HasConstraintName("FK__ClassStud__Class__3D5E1FD2");
+
+                    b.HasOne("DBfirst.Models.Student", null)
+                        .WithMany()
+                        .HasForeignKey("StudentId")
+                        .IsRequired()
+                        .HasConstraintName("FK__ClassStud__Stude__3E52440B");
+                });
+
+            modelBuilder.Entity("DBfirst.Models.Class", b =>
+                {
+                    b.HasOne("DBfirst.Models.Subject", "Subject")
+                        .WithMany("Classes")
+                        .HasForeignKey("SubjectId")
+                        .IsRequired()
+                        .HasConstraintName("FK__Class__SubjectId__3A81B327");
+
+                    b.HasOne("DBfirst.Models.Teacher", "Teacher")
+                        .WithMany("Classes")
+                        .HasForeignKey("TeacherId")
+                        .IsRequired()
+                        .HasConstraintName("FK__Class__TeacherId__398D8EEE");
+
+                    b.Navigation("Subject");
+
+                    b.Navigation("Teacher");
+                });
+
             modelBuilder.Entity("DBfirst.Models.Evaluation", b =>
                 {
                     b.HasOne("DBfirst.Models.Student", "Student")
                         .WithMany("Evaluations")
                         .HasForeignKey("StudentId");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("DBfirst.Models.Feedback", b =>
+                {
+                    b.HasOne("DBfirst.Models.Class", "Class")
+                        .WithMany("Feedbacks")
+                        .HasForeignKey("ClassId")
+                        .IsRequired()
+                        .HasConstraintName("FK__Feedback__ClassI__59063A47");
+
+                    b.HasOne("DBfirst.Models.Student", "Student")
+                        .WithMany("Feedbacks")
+                        .HasForeignKey("StudentId")
+                        .IsRequired()
+                        .HasConstraintName("FK__Feedback__Studen__5812160E");
+
+                    b.Navigation("Class");
 
                     b.Navigation("Student");
                 });
@@ -539,9 +671,16 @@ namespace DBfirst.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("DBfirst.Models.Class", b =>
+                {
+                    b.Navigation("Feedbacks");
+                });
+
             modelBuilder.Entity("DBfirst.Models.Student", b =>
                 {
                     b.Navigation("Evaluations");
+
+                    b.Navigation("Feedbacks");
 
                     b.Navigation("StudentDetails");
 
@@ -550,9 +689,16 @@ namespace DBfirst.Migrations
 
             modelBuilder.Entity("DBfirst.Models.Subject", b =>
                 {
+                    b.Navigation("Classes");
+
                     b.Navigation("StudentSubjects");
 
                     b.Navigation("Teachers");
+                });
+
+            modelBuilder.Entity("DBfirst.Models.Teacher", b =>
+                {
+                    b.Navigation("Classes");
                 });
 
             modelBuilder.Entity("DBfirst.Models.User", b =>
