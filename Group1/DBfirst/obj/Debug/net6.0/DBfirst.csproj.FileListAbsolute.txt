@@ -480,3 +480,13 @@ C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\ne
 C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.OData.ModelBuilder.dll
 C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Microsoft.Spatial.dll
 C:\Users\ADMIN\Documents\GitHub\PRN231_BLOCK5_GROUP1\Group1\DBfirst\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.csproj.AssemblyReference.cache
+C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.AssemblyInfoInputs.cache
+C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.AssemblyInfo.cs
+C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.csproj.CoreCompileInputs.cache
+C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.RazorAssemblyInfo.cache
+C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.RazorAssemblyInfo.cs
+C:\Users\asus\Desktop\PRN231_BLOCK5_GROUP1\Group1\DBfirst\obj\Debug\net6.0\DBfirst.sourcelink.json
