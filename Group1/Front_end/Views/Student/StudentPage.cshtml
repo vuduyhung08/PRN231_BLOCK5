@@ -115,6 +115,10 @@
             <td colspan="2" class="actions">
                 <button onclick="viewScore()">View Score</button>
                 <button onclick="updateProfile()">Update Profile</button>
+<<<<<<< HEAD
+=======
+                <button onclick="redirectToPage()">Class</button>
+>>>>>>> Khang
             </td>
         </tr>
     </tbody>
@@ -136,6 +140,19 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
 <script>
+<<<<<<< HEAD
+=======
+    const redirectToPage = () => {
+        const studentId = $("#studentId").val();
+        if (!studentId) {
+            alert("Student ID is missing.");
+            return;
+        }
+
+        // Redirect to the Class page with the StudentId
+        window.location.href = `@Url.Action("Student", "Student")?studentId=${studentId}`;
+    };
+>>>>>>> Khang
     function getCookie(name) {
         const cookieArr = document.cookie.split(";");
 

@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+<<<<<<< HEAD
+=======
+using System.Net.Http.Headers;
+>>>>>>> Khang
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
@@ -50,10 +54,25 @@ namespace Front_end.Controllers
         }
 
         private readonly string _rootUrl;
+<<<<<<< HEAD
 
         public StudentController(IConfiguration configuration)
         {
             _rootUrl = configuration.GetSection("ApiUrls")["MyApi"];
+=======
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public StudentController(IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
+        {
+            _rootUrl = configuration.GetSection("ApiUrls")["MyApi"];
+            _httpContextAccessor = httpContextAccessor;
+        }
+
+        private string GetTokenFromCookie()
+        {
+            // Get the JWT token from the cookie
+            return _httpContextAccessor.HttpContext.Request.Cookies["JwtToken"];
+>>>>>>> Khang
         }
 
         public async Task<IActionResult> Student(int studentId)
@@ -61,7 +80,16 @@ namespace Front_end.Controllers
             List<ClassDTO> classes = new List<ClassDTO>();
             using (HttpClient httpClient = new HttpClient())
             {
+<<<<<<< HEAD
                 string url = $"{_rootUrl}Students/student/1002/classes";
+=======
+                string url = $"{_rootUrl}Students/student/{studentId}/classes";
+                string token = GetTokenFromCookie();
+                if (!string.IsNullOrEmpty(token))
+                {
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                }
+>>>>>>> Khang
                 HttpResponseMessage response = await httpClient.GetAsync(url);
                 response.EnsureSuccessStatusCode();
 
@@ -80,10 +108,20 @@ namespace Front_end.Controllers
                     }
                 }
             }
+<<<<<<< HEAD
+=======
+
+            ViewBag.StudentId = studentId;
+>>>>>>> Khang
             return View(classes);
         }
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> Khang
         [HttpGet]
         public IActionResult FeedBack(int studentId, int classId)
         {
@@ -109,6 +147,14 @@ namespace Front_end.Controllers
                 });
 
                 string url = $"{_rootUrl}Students/feedback/{studentId}/{classId}";
+<<<<<<< HEAD
+=======
+                string token = GetTokenFromCookie();
+                if (!string.IsNullOrEmpty(token))
+                {
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                }
+>>>>>>> Khang
                 HttpResponseMessage response = await httpClient.PostAsync(url, formContent);
 
                 if (response.IsSuccessStatusCode)
