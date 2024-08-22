@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|d:\\prn231_block5_group1\\group1\\dbfirst\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|d:\\prn231_block5_group1\\group1\\dbfirst\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|d:\\prn231_block5_group1\\group1\\dbfirst\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|d:\\prn231_block5_group1\\group1\\front_end\\wwwroot\\js\\student.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\wwwroot\\js\\student.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -23,19 +35,56 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "student.js",
-              "DocumentMoniker": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\wwwroot\\js\\student.js",
-              "RelativeDocumentMoniker": "Front_end\\wwwroot\\js\\student.js",
-              "ToolTip": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\wwwroot\\js\\student.js",
-              "RelativeToolTip": "Front_end\\wwwroot\\js\\student.js",
-              "ViewState": "AQIAAIAAAAAAAAAAAAAWwFIAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-08-21T18:12:11.808Z",
+              "Title": "StudentsController.cs",
+              "DocumentMoniker": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentsController.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Controllers\\StudentsController.cs",
+              "ToolTip": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\StudentsController.cs",
+              "RelativeToolTip": "DBfirst\\Controllers\\StudentsController.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwCwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:27:49.733Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "SubjectsController.cs",
+              "DocumentMoniker": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\SubjectsController.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Controllers\\SubjectsController.cs",
+              "ToolTip": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\SubjectsController.cs",
+              "RelativeToolTip": "DBfirst\\Controllers\\SubjectsController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBIAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:19:00.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Program.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Program.cs",
+              "ToolTip": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Program.cs",
+              "RelativeToolTip": "DBfirst\\Program.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T02:17:50.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "student.js",
+              "DocumentMoniker": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\wwwroot\\js\\student.js",
+              "RelativeDocumentMoniker": "Front_end\\wwwroot\\js\\student.js",
+              "ToolTip": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\wwwroot\\js\\student.js",
+              "RelativeToolTip": "Front_end\\wwwroot\\js\\student.js",
+              "ViewState": "AQIAAIAAAAAAAAAAAAAWwI4AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-08-21T18:12:11.808Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ManageStudent.cshtml",
               "DocumentMoniker": "D:\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Admin\\ManageStudent.cshtml",
               "RelativeDocumentMoniker": "Front_end\\Views\\Admin\\ManageStudent.cshtml",
@@ -43,8 +92,7 @@
               "RelativeToolTip": "Front_end\\Views\\Admin\\ManageStudent.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-21T16:32:00.549Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-21T16:32:00.549Z"
             }
           ]
         }

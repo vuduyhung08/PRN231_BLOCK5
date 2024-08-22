@@ -16,6 +16,7 @@ namespace DBfirst.Controllers
             _context = context;
         }
 
+       
         // GET: api/subject
         [HttpGet("viewallsubject")]
         public async Task<ActionResult<IEnumerable<Subject>>> GetSubjects()

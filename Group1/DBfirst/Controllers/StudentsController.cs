@@ -44,7 +44,7 @@ namespace DBfirst.Controllers
         }
 
         [HttpGet("viewstudentdetail")]
-        public async Task<ActionResult<IEnumerable<StudentDto>>> GetStudents()
+        public async Task<ActionResult<IEnumerable<StudentDto>>> GetStudentWithDetail()
         {
             var students = await _context.Students
                 .Include(s => s.StudentDetails)
