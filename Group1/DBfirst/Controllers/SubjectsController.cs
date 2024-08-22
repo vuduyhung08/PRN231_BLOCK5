@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.EntityFrameworkCore;
+using DBfirst.Data.Roles;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DBfirst.Controllers
 {
@@ -20,6 +22,7 @@ namespace DBfirst.Controllers
 
         [HttpGet]
         [EnableQuery]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult GetAll()
         {
             if (_context.Subjects == null)
@@ -32,6 +35,7 @@ namespace DBfirst.Controllers
 
         // GET: api/subject
         [HttpGet("viewallsubject")]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<ActionResult<IEnumerable<Subject>>> GetSubjects()
         {
             var subs = await _context.Subjects
@@ -45,6 +49,7 @@ namespace DBfirst.Controllers
 
         // POST: api/subject
         [HttpPost("addsubject")]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<IActionResult> AddSubject([FromBody] string subjectName)
         {
             if (string.IsNullOrEmpty(subjectName))
@@ -70,6 +75,7 @@ namespace DBfirst.Controllers
 
         // PUT: api/subject/{id}
         [HttpPut("editsubject")]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<IActionResult> UpdateSubject(int id, [FromBody] string subjectName)
         {
             if (string.IsNullOrEmpty(subjectName))

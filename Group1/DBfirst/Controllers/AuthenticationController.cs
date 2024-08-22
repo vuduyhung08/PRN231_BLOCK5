@@ -91,8 +91,21 @@ namespace DBfirst.Controllers
                 var isCreated = await _userManager.CreateAsync(newUser, request.Password);
                 if (isCreated.Succeeded)
                 {
-                    await _emailService.SendEmailAsync(newUser.Email, newUser.ActiveCode);
-                    return Ok("User created successfully!");
+                    var userRole = await _userManager.AddToRoleAsync(newUser, "Student");
+                    if (userRole.Succeeded)
+                    {
+                        await _emailService.SendEmailAsync(newUser.Email, newUser.ActiveCode);
+                        return Ok("User created successfully!");
+                    }
+                    else
+                    {
+                        var errorMessages = string.Join(", ", isCreated.Errors.Select(e => e.Description));
+                        return BadRequest(new AuthResult()
+                        {
+                            Errors = new List<string> { $"Server error: {errorMessages}" },
+                            Result = false
+                        });
+                    }
                 }
                 else
                 {
@@ -124,6 +137,12 @@ namespace DBfirst.Controllers
             {
                 user.ActiveCode = null;
                 user.EmailConfirmed = true;
+                Student student = new Student
+                {
+                    Name = user.UserName,
+                    AccountId = user.Id
+                };
+                _context.Students.Add(student);
                 _context.User.Update(user);
                 _context.SaveChanges();
                 return Ok("Your account has been activated");

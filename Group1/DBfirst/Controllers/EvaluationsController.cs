@@ -1,6 +1,8 @@
-﻿using DBfirst.DataAccess;
+﻿using DBfirst.Data.Roles;
+using DBfirst.DataAccess;
 using DBfirst.Models;
 using DBfirst.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Results;
@@ -21,6 +23,7 @@ namespace DBfirst.Controllers
             _emailService = service;
         }
 
+        [Authorize(Roles = AppRole.Teacher)]
         [HttpPost("/SendGrade")]
         public async Task<IActionResult> SendGrade()
         {
@@ -38,6 +41,7 @@ namespace DBfirst.Controllers
 
         [HttpGet]
         [EnableQuery]
+        [Authorize(Roles = AppRole.Teacher)]
         public IQueryable<EvaluationDTOs> Get()
         {
             return _context.Evaluations
@@ -64,6 +68,7 @@ namespace DBfirst.Controllers
 
         [HttpGet("{id}")]
         [EnableQuery]
+        [Authorize(Roles = AppRole.Teacher)]
         public IActionResult GetById([FromRoute] int id)
         {
             var result = _context.Evaluations.Where(e => e.EvaluationId == id);
@@ -76,6 +81,7 @@ namespace DBfirst.Controllers
 
         // POST: api/Evaluations
         [HttpPost]
+        [Authorize(Roles = AppRole.Teacher)]
         public IActionResult Post([FromBody] EvaluationPostDTO evaluation)
         {
             if (!ModelState.IsValid)
@@ -108,6 +114,7 @@ namespace DBfirst.Controllers
 
         // PUT: api/Evaluations/5
         [HttpPut("{id}")]
+        [Authorize(Roles = AppRole.Teacher)]
         public IActionResult PutById([FromRoute] int id, [FromBody] EvaluationPutDto evaluationDto)
         {
             if (evaluationDto == null || !ModelState.IsValid)
@@ -170,6 +177,7 @@ namespace DBfirst.Controllers
 
         // DELETE: api/Evaluations/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = AppRole.Teacher)]
         public IActionResult DeleteById([FromRoute] int id)
         {
             var evaluation = _context.Evaluations.Find(id);

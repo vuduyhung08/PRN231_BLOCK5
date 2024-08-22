@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using OfficeOpenXml.Table;
 using OfficeOpenXml;
 using DBfirst.DataAccess;
+using DBfirst.Data.Roles;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DBfirst.Controllers
 {
@@ -20,7 +22,8 @@ namespace DBfirst.Controllers
 			_context = context;
 		}
 
-		[HttpGet("subject_analysis")]
+        [Authorize(Roles = AppRole.Admin)]
+        [HttpGet("subject_analysis")]
 		public IActionResult GetSubjectAnalytics()
 		{
 			var subjectAnalytics = _context.Subjects
@@ -38,6 +41,7 @@ namespace DBfirst.Controllers
 		}
 
         [HttpGet("student_analysis")]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult Top10AverageGrades()
         {
             var top10AverageGrades = _context.Students
@@ -56,6 +60,7 @@ namespace DBfirst.Controllers
         }
 
 		[HttpGet("export_subject_analysis")]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<IActionResult> ExportSubjectAnalysis(int subjectId)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;

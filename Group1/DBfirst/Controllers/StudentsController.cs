@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using DBfirst.Data.DTOs;
+using DBfirst.Data.Roles;
 using DBfirst.DataAccess;
 using DBfirst.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using static DBfirst.Controllers.StudentsController;
@@ -22,6 +24,7 @@ namespace DBfirst.Controllers
 
         // GET: api/Students
         [HttpGet]
+        [Authorize(Roles = AppRole.Student + ", " + AppRole.Teacher)]
         public IActionResult GetStudent()
         {
             var students = _context.Students
@@ -42,12 +45,14 @@ namespace DBfirst.Controllers
         }
 
         // GET: api/student/{studentId}
+        [Authorize(Roles = AppRole.Student)]
         [HttpGet("{studentId}")]
-        public async Task<ActionResult<StudentDTO>> GetStudentProfile(int studentId)
+        public async Task<ActionResult<StudentDTO>> GetStudentProfile(string studentId)
         {
             var student = await _context.Students
                 .Include(s => s.StudentDetails)
-                .Where(s => s.StudentId == studentId)
+                .Include(s => s.User)
+                .Where(s => s.User.Id == studentId)
                 .FirstOrDefaultAsync();
 
             if (student == null)
@@ -59,6 +64,7 @@ namespace DBfirst.Controllers
             return Ok(studentDto);
         }
 
+        [Authorize(Roles = AppRole.Student)]
         [HttpPut("{studentId}")]
         public async Task<IActionResult> UpdateStudent(int studentId, StudentDTO studentDto)
         {
@@ -99,7 +105,9 @@ namespace DBfirst.Controllers
         }
 
 
+
         // GET: api/student/{studentId}/scores
+        [Authorize(Roles = AppRole.Student)]
         [HttpGet("{studentId}/scores")]
         public async Task<ActionResult<IEnumerable<EvaluationDTO>>> GetStudentScores(int studentId)
         {
@@ -123,6 +131,7 @@ namespace DBfirst.Controllers
         }
 
         [HttpGet("viewstudentdetail")]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<ActionResult<IEnumerable<StudentDto>>> GetStudentWithDetail()
         {
             var students = await _context.Students
@@ -144,6 +153,7 @@ namespace DBfirst.Controllers
 
         // POST: api/Students
         [HttpPost("createstudent")]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<ActionResult<Student>> CreateStudent(CreateStudentDto createStudentDto)
         {
             var student = _mapper.Map<Student>(createStudentDto);
@@ -169,6 +179,7 @@ namespace DBfirst.Controllers
 
         // PUT: api/Students/{id}
         [HttpPut("editstudent")]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<IActionResult> EditStudent(int id, EditStudentDto studentDto)
         {
             var student = await _context.Students
@@ -219,6 +230,7 @@ namespace DBfirst.Controllers
         }
 
         [HttpGet("student/{studentId}/classes")]
+        [Authorize(Roles = AppRole.Student)]
         public async Task<IActionResult> GetClassesForStudent(int studentId)
         {
             var student = await _context.Students
@@ -247,6 +259,7 @@ namespace DBfirst.Controllers
 
 
         [HttpPost("AddStudentClass")]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult AddStudentClass([FromBody] AddStudentClassRequest request)
         {
             var classEntity = _context.Classes
@@ -288,6 +301,7 @@ namespace DBfirst.Controllers
 
 
         [HttpPost("feedback/{StudentId}/{ClassId}")]
+        [Authorize(Roles = AppRole.Student)]
         public IActionResult PostFeedBack(int StudentId, int ClassId, [FromForm] FeedBackDTO feedback)
         {
             // Kiểm tra xem sinh viên có tồn tại hay không

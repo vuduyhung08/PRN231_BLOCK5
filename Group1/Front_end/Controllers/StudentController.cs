@@ -23,7 +23,7 @@ namespace Front_end.Controllers
             List<ClassDTO> classes = new List<ClassDTO>();
             using (HttpClient httpClient = new HttpClient())
             {
-                string url = $"{_rootUrl}Students/student/10/classes";
+                string url = $"{_rootUrl}Students/student/1002/classes";
                 HttpResponseMessage response = await httpClient.GetAsync(url);
                 response.EnsureSuccessStatusCode();
 

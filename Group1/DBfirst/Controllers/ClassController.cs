@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using DBfirst.Models;
 using DBfirst.Data.DTOs;
 using DBfirst.DataAccess;
+using DBfirst.Data.Roles;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DBfirst.Controllers
 {
@@ -22,6 +24,7 @@ namespace DBfirst.Controllers
 
         [EnableQuery]
         [HttpGet]
+        [Authorize(Roles = AppRole.Admin)]
         public IActionResult Get()
         {
             var list = _projectContext.Classes.Select(s => new
@@ -37,6 +40,7 @@ namespace DBfirst.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = AppRole.Admin)]
         public async Task<IActionResult> PostClass([FromBody] ClassDTO newClass)
         {
             if (newClass == null)

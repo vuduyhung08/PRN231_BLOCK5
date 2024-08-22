@@ -106,23 +106,24 @@
                     dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Admin/ManageActiveStatus"><i style="margin-right: 10px" class="fa-solid fa-user-tie"></i>ManageActiveStatus</a></li>`;
                 }
                 if (userRole === "Teacher") {
-                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Evaluation/Index"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Chấm điểm</a></li>`;
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Evaluation/Index"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Scoring</a></li>`;
                     dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Teacher/TeacherPage"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Profile</a></li>`;
                 }
                 if (userRole === "Student") {
                     dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Student/StudentPage"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Profile</a></li>`;
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Student/StudentPage"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Profile</a></li>`;
                 }
 
                 dropdownMenu.innerHTML += `
-                        <li style="padding: 5px 0"><a class="dropdown-item" href="/Logout"><i style="margin-right: 10px" class="fa-solid fa-arrow-right-from-bracket"></i>Đăng xuất</a></li>
+                        <li style="padding: 5px 0"><a class="dropdown-item" href="/Logout"><i style="margin-right: 10px" class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
                     `;
             } else {
                 loginRegisterLinks.innerHTML = `
                         <li class="nav-item">
-                            <a class="nav-link btn btn-light" style="border-radius: 5px !important; font-weight:bold; color: #006ce4 !important; padding: 5px 15px" href="/Authentication/Register">Đăng ký</a>
+                            <a class="nav-link btn btn-light" style="border-radius: 5px !important; font-weight:bold; color: #006ce4 !important; padding: 5px 15px" href="/Authentication/Register">Sign-in</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-light" style="border-radius: 5px !important; font-weight:bold; color: #006ce4 !important; padding: 5px 15px" href="/Authentication/Login">Đăng nhập</a>
+                            <a class="nav-link btn btn-light" style="border-radius: 5px !important; font-weight:bold; color: #006ce4 !important; padding: 5px 15px" href="/Users/Login">Login</a>
                         </li>
                     `;
             }

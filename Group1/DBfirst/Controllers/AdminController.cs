@@ -1,4 +1,6 @@
-﻿using DBfirst.DataAccess;
+﻿using DBfirst.Data.Roles;
+using DBfirst.DataAccess;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +17,7 @@ namespace DBfirst.Controllers
             _context = context;
         }
 
+        [Authorize(Roles = AppRole.Admin)]
         [HttpGet("viewactive")]
         public async Task<IActionResult> GetUsers()
         {
@@ -27,6 +30,7 @@ namespace DBfirst.Controllers
             return Ok(users);
         }
 
+        [Authorize(Roles = AppRole.Admin)]
         [HttpPut("editactive")]
         public async Task<IActionResult> UpdateUserActiveStatus(string username, bool isActive)
         {

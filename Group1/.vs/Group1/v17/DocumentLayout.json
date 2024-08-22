@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\wwwroot\\js\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\wwwroot\\js\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\dbfirst\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\dbfirst\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48ADAF6F-9B3D-4E92-B3D7-D042E1F5A972}|DBfirst\\DBfirst.csproj|solutionrelative:dbfirst\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\views\\authentication\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\views\\authentication\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\pages\\users\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\pages\\users\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\pages\\users\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\pages\\users\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|c:\\users\\admin\\documents\\github\\prn231_block5_group1\\group1\\front_end\\pages\\users\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92FE4E3B-3FBE-46CF-B9BB-A0AF8CD042FD}|Front_end\\Front_end.csproj|solutionrelative:front_end\\pages\\users\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,32 +59,84 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "dashboard.js",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\wwwroot\\js\\dashboard.js",
+              "RelativeDocumentMoniker": "Front_end\\wwwroot\\js\\dashboard.js",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\wwwroot\\js\\dashboard.js",
+              "RelativeToolTip": "Front_end\\wwwroot\\js\\dashboard.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-08-22T15:54:02.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Front_end\\Views\\Admin\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeToolTip": "Front_end\\Views\\Admin\\Dashboard.cshtml",
+              "ViewState": "AQIAAOwAAAAAAAAAAAAmwPUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-22T15:53:54.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SubjectsController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\SubjectsController.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Controllers\\SubjectsController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\SubjectsController.cs",
+              "RelativeToolTip": "DBfirst\\Controllers\\SubjectsController.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAgwE0AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T15:28:35.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "DBfirst\\Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "DBfirst\\Controllers\\AuthenticationController.cs",
+              "ViewState": "AQIAAOABAAAAAAAAAAAlwD8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T14:20:19.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Authentication\\Register.cshtml",
               "RelativeDocumentMoniker": "Front_end\\Views\\Authentication\\Register.cshtml",
               "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Authentication\\Register.cshtml",
               "RelativeToolTip": "Front_end\\Views\\Authentication\\Register.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAADUAAABYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-22T13:18:28.998Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Front_end\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Front_end\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAmwFIAAAAAAAAA",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAAADYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-22T12:56:32.65Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Pages\\Users\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "Front_end\\Pages\\Users\\Login.cshtml.cs",
@@ -81,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\Front_end\\Pages\\Users\\Login.cshtml",
               "RelativeDocumentMoniker": "Front_end\\Pages\\Users\\Login.cshtml",
