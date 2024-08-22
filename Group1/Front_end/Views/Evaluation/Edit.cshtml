@@ -44,12 +44,16 @@
             };
 
             $("#loading-overlay").css('display', 'flex');
+            const jwtToken = getCookie("JwtToken");
 
             $.ajax({
                 url: `http://localhost:5224/api/Evaluations/${evaluationId}`,
                 type: 'PUT', // Using PUT for an update operation
                 contentType: 'application/json',
                 data: JSON.stringify(data),
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+                },
                 success: function (response) {
                     $("#loading-overlay").hide();
                     window.location.href = '@Url.Action("Index")';

@@ -2,6 +2,8 @@
 using DBfirst.Models;
 using Front_end.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Text.Json;
 
@@ -11,21 +13,149 @@ namespace Front_end.Controllers
     {
         public IActionResult Dashboard()
         {
-            return View();
+            var jwtToken = Request.Cookies["JwtToken"];
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.UTF8.GetBytes("hiUAHSDUIOHIAOHUIOhihaiosdhf8uh29873yh9dsahfjkasldnf28937rhjasknfasdu9fh908ujnfkdlsanf81237949yhHNFAKJDNF0849HTFNL");
+                tokenHandler.ValidateToken(jwtToken, new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                }, out SecurityToken validatedToken);
+
+                var jwtToken2 = (JwtSecurityToken)validatedToken;
+                var userRole = jwtToken2.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+
+                if (userRole != "Adminstrator")
+                {
+                    return Unauthorized();
+                }
+
+                return View();
+            }
+            catch
+            {
+                return Unauthorized();
+            }
         }
 
         public IActionResult ManageActiveStatus()
         {
-            return View();
+            var jwtToken = Request.Cookies["JwtToken"];
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.UTF8.GetBytes("hiUAHSDUIOHIAOHUIOhihaiosdhf8uh29873yh9dsahfjkasldnf28937rhjasknfasdu9fh908ujnfkdlsanf81237949yhHNFAKJDNF0849HTFNL");
+                tokenHandler.ValidateToken(jwtToken, new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                }, out SecurityToken validatedToken);
+
+                var jwtToken2 = (JwtSecurityToken)validatedToken;
+                var userRole = jwtToken2.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+
+                if (userRole != "Adminstrator")
+                {
+                    return Unauthorized();
+                }
+
+                return View();
+            }
+            catch
+            {
+                return Unauthorized();
+            }
         }
 
         public IActionResult ManageStudent()
         {
-            return View();
+            var jwtToken = Request.Cookies["JwtToken"];
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.UTF8.GetBytes("hiUAHSDUIOHIAOHUIOhihaiosdhf8uh29873yh9dsahfjkasldnf28937rhjasknfasdu9fh908ujnfkdlsanf81237949yhHNFAKJDNF0849HTFNL");
+                tokenHandler.ValidateToken(jwtToken, new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                }, out SecurityToken validatedToken);
+
+                var jwtToken2 = (JwtSecurityToken)validatedToken;
+                var userRole = jwtToken2.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+
+                if (userRole != "Adminstrator")
+                {
+                    return Unauthorized();
+                }
+
+                return View();
+            }
+            catch
+            {
+                return Unauthorized();
+            }
         }
         public IActionResult Index()
         {
-            return View();
+            var jwtToken = Request.Cookies["JwtToken"];
+            if (string.IsNullOrEmpty(jwtToken))
+            {
+                return Unauthorized();
+            }
+
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.UTF8.GetBytes("hiUAHSDUIOHIAOHUIOhihaiosdhf8uh29873yh9dsahfjkasldnf28937rhjasknfasdu9fh908ujnfkdlsanf81237949yhHNFAKJDNF0849HTFNL");
+                tokenHandler.ValidateToken(jwtToken, new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                }, out SecurityToken validatedToken);
+
+                var jwtToken2 = (JwtSecurityToken)validatedToken;
+                var userRole = jwtToken2.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+
+                if (userRole != "Adminstrator")
+                {
+                    return Unauthorized();
+                }
+
+                return View();
+            }
+            catch
+            {
+                return Unauthorized();
+            }
         }
         private readonly string _rootUrl;
 

@@ -127,7 +127,6 @@
     }
     $(document).ready(function () {
         const jwtToken = getCookie("JwtToken");
-        console.log(jwtToken);
         const firstApiCall = $.ajax({
             url: 'http://localhost:5224/api/Dashboard/student_analysis',
             method: 'GET',
@@ -235,9 +234,14 @@
 
     async function exportAndDownload(subjectId) {
         document.getElementById('loading-overlay').style.display = 'flex';
-
+        const jwtToken = getCookie("JwtToken");
         try {
-            const response = await fetch(`http://localhost:5224/api/Dashboard/export_subject_analysis?subjectId=${subjectId}`);
+            const response = await fetch(`http://localhost:5224/api/Dashboard/export_subject_analysis?subjectId=${subjectId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${jwtToken}`
+                }
+            });
 
             if (!response.ok) {
                 const errorMessage = await response.text();
@@ -253,7 +257,8 @@
             document.body.appendChild(link);
             link.click();
             link.remove();
-            alert('An error occurred.');
+            window.URL.revokeObjectURL(url);
+            alert('Download successful.');
         } catch (error) {
             console.error('Error downloading the file:', error);
             alert('An error occurred.');

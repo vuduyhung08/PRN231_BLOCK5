@@ -40,12 +40,16 @@
             console.log(data.additionExplanation); 
 
             $("#loading-overlay").css('display', 'flex');
+            const jwtToken = getCookie("JwtToken");
 
             $.ajax({
                 url: 'http://localhost:5224/api/Evaluations',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(data),
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+                },
                 success: function (response) {
                     $("#loading-overlay").hide();
                     window.location.href = 'http://localhost:5050/Evaluation';

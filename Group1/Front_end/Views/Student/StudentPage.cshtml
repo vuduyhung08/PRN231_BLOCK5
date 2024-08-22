@@ -176,9 +176,13 @@
     });
 
     const GetStudentProfile = (userId) => {
+        const jwtToken = getCookie("JwtToken");
         $.ajax({
             url: `http://localhost:5224/api/Students/${userId}`,
             type: "GET",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+            },
             headers: {
                 "Content-Type": "application/json",
             },
@@ -207,10 +211,14 @@
             alert("Student ID is missing.");
             return;
         }
+        const jwtToken = getCookie("JwtToken");
 
         $.ajax({
             url: `http://localhost:5224/api/Students/${studentId}/scores`,
             type: "GET",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+            },
             headers: {
                 "Content-Type": "application/json",
             },
@@ -256,10 +264,14 @@
                 additionalInformation: $("#additionalInformation").val()
             }]
         };
+        const jwtToken = getCookie("JwtToken");
 
         $.ajax({
             url: `http://localhost:5224/api/Students/${studentId}`,
             type: "PUT",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+            },
             headers: {
                 "Content-Type": "application/json",
             },

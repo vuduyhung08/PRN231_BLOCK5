@@ -59,7 +59,7 @@ namespace Front_end.Pages
                             {
                                 HttpOnly = false, 
                                 Secure = false,    
-                                Expires = DateTimeOffset.UtcNow.AddDays(1),  
+                                Expires = DateTimeOffset.UtcNow.AddHours(1),  
                                 SameSite = SameSiteMode.Strict               
                             };
 

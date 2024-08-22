@@ -3,7 +3,14 @@
 
     // Fetch user data and populate the table
     function fetchUsers() {
-        fetch('http://localhost:5224/api/Admin/viewactive')
+        const jwtToken = getCookie("JwtToken");
+        fetch('http://localhost:5224/api/Admin/viewactive', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${jwtToken}`,
+                'Content-Type': 'application/json'
+            }
+        })
             .then(response => response.json())
             .then(users => {
                 userTableBody.innerHTML = ''; // Clear existing rows
@@ -65,9 +72,14 @@
     // Update user's active status
     function updateUserActiveStatus(username, isActive) {
         const url = `http://localhost:5224/api/Admin/editactive?username=${encodeURIComponent(username)}&isActive=${isActive}`;
+        const jwtToken = getCookie("JwtToken");
 
         fetch(url, {
             method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${jwtToken}`,
+                'Content-Type': 'application/json'
+            }
         })
             .then(response => {
                 if (response.ok) {

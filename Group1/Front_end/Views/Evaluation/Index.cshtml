@@ -42,10 +42,14 @@
     function confirmDelete(evaluationId) {
         if (confirm("Are you sure you want to delete this evaluation?")) {
             $("#loading-overlay").css('display', 'flex');
+            const jwtToken = getCookie("JwtToken");
 
             $.ajax({
                 url: `http://localhost:5224/api/Evaluations/${evaluationId}`,
                 type: 'DELETE',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+                },
                 success: function (response) {
                     $("#loading-overlay").hide();
                     window.location.reload();
@@ -79,10 +83,14 @@
 
     function sendGrade() {
         $("#loading-overlay").css('display', 'flex');
+        const jwtToken = getCookie("JwtToken");
 
         $.ajax({
             url: `http://localhost:5224/SendGrade`,
             type: 'POST',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', `Bearer ${jwtToken}`);
+            },
             success: function (response) {
                 $("#loading-overlay").hide();
                 alert("Send grade successfully!");

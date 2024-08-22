@@ -35,7 +35,7 @@ namespace DBfirst.Controllers
 
         // GET: api/subject
         [HttpGet("viewallsubject")]
-        [Authorize(Roles = AppRole.Admin)]
+        [Authorize(Roles = AppRole.Admin + ", " + AppRole.Teacher)]
         public async Task<ActionResult<IEnumerable<Subject>>> GetSubjects()
         {
             var subs = await _context.Subjects

@@ -80,12 +80,6 @@
         document.addEventListener("DOMContentLoaded", function () {
             const jwtToken = getCookie("JwtToken");
 
-            if (jwtToken) {
-                const decodedPayload = parseJwt(jwtToken);
-                console.log(decodedPayload);  
-            } else {
-                console.log("JWT token not found in cookies");
-            }
             const decodedToken = parseJwt(jwtToken);
             const userRole = decodedToken.role;
 
@@ -111,11 +105,15 @@
                 }
                 if (userRole === "Student") {
                     dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Student/StudentPage"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Profile</a></li>`;
-                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Student/StudentPage"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Profile</a></li>`;
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Student/Student"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Send Feedback</a></li>`;
                 }
 
                 dropdownMenu.innerHTML += `
-                        <li style="padding: 5px 0"><a class="dropdown-item" href="/Logout"><i style="margin-right: 10px" class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                        <li style="padding: 5px 0">
+                            <a class="dropdown-item" href="#" id="logout-link">
+                                <i style="margin-right: 10px" class="fa-solid fa-arrow-right-from-bracket"></i>Logout
+                            </a>
+                        </li>
                     `;
             } else {
                 loginRegisterLinks.innerHTML = `
@@ -127,6 +125,16 @@
                         </li>
                     `;
             }
+
+            document.getElementById('logout-link').addEventListener('click', function (event) {
+                event.preventDefault(); 
+
+                document.cookie.split(';').forEach(function (c) {
+                    document.cookie = c.trim().replace(/=.*/, '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/');
+                });
+                userDropdown.style.display = 'none';
+                window.location.href = '../Users/Login';
+            });
         });
     </script>
     @await RenderSectionAsync("Scripts", required: false)
