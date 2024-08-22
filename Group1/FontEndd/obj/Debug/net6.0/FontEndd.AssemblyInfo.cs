@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FontEndd")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4c18055465bce319794e36e29204aa0b8ff7b47")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e80a73259e3704be6462c9a605dc6d539fbb4722")]
 [assembly: System.Reflection.AssemblyProductAttribute("FontEndd")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FontEndd")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

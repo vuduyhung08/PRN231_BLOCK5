@@ -49,6 +49,44 @@ namespace FontEnd.Controllers
             return View(classes);
         }
 
-        
+        [HttpGet]
+        public IActionResult FeedBack(int studentId, int classId)
+        {
+            ViewBag.StudentId = studentId;
+            ViewBag.ClassId = classId;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> FeedBack(int studentId, int classId, int? rating, string feedbackText)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                var formContent = new FormUrlEncodedContent(new[]
+                {
+                    new KeyValuePair<string, string>("Rating", rating.ToString()),
+                    new KeyValuePair<string, string>("FeedbackText", feedbackText)
+                });
+
+                string url = $"{_rootUrl}Student/feedback/{studentId}/{classId}";
+                HttpResponseMessage response = await httpClient.PostAsync(url, formContent);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["Message"] = "Feedback added successfully!";
+                    return RedirectToAction("Student", new { studentId = studentId }); // Redirect to the student's classes page
+                }
+                else
+                {
+                    TempData["Error"] = await response.Content.ReadAsStringAsync();
+                    return View("~/Views/Student/FeedBack.cshtml");
+                }
+            }
+        }
     }
 }
