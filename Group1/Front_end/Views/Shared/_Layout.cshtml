@@ -86,19 +86,24 @@
             } else {
                 console.log("JWT token not found in cookies");
             }
-
-            const userName = localStorage.getItem("UserName");
-            const userRole = localStorage.getItem("UserRole");
+            const decodedToken = parseJwt(jwtToken);
+            const userRole = decodedToken.role;
 
             const userDropdown = document.getElementById('userDropdown');
             const dropdownMenu = document.getElementById('dropdownMenu');
             const loginRegisterLinks = document.getElementById('loginRegisterLinks');
 
-            if (userName) {
-                userDropdown.innerHTML = `Welcome, ${userName}`;
+            if (userRole) {
+                userDropdown.style.display = 'block';
+                userDropdown.innerHTML = `Welcom, ${decodedToken.email}`;
 
-                if (userRole === "Admin") {
-                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Admin/Dashboard"><i style="margin-right: 10px" class="fa-solid fa-user-tie"></i>Trang quản trị</a></li>`;
+                if (userRole === "Adminstrator") {
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Admin/Dashboard"><i style="margin-right: 10px" class="fa-solid fa-user-tie"></i>Dashboard</a></li>`;
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Admin/Class"><i style="margin-right: 10px" class="fa-solid fa-user-tie"></i>ManageClass</a></li>`;
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Admin"><i style="margin-right: 10px" class="fa-solid fa-user-tie"></i>ManageSubject</a></li>`;
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Admin/AddStudentClass"><i style="margin-right: 10px" class="fa-solid fa-user-tie"></i>AddStudentToClass</a></li>`;
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Admin/ManageStudent"><i style="margin-right: 10px" class="fa-solid fa-user-tie"></i>ManageStudent</a></li>`;
+                    dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Admin/ManageActiveStatus"><i style="margin-right: 10px" class="fa-solid fa-user-tie"></i>ManageActiveStatus</a></li>`;
                 }
                 if (userRole === "Teacher") {
                     dropdownMenu.innerHTML += `<li style="padding: 5px 0"><a class="dropdown-item" href="/Evaluation/Index"><i style="margin-right: 10px" class="fa-solid fa-hotel"></i>Chấm điểm</a></li>`;

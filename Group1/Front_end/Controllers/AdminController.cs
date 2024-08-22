@@ -34,11 +34,6 @@ namespace Front_end.Controllers
             _rootUrl = configuration.GetSection("ApiUrls")["MyApi"];
         }
 
-        // GET: /Admin
-        public IActionResult Admin()
-        {
-            return View();
-        }
 
         // GET: /Admin/Class
         [HttpGet]
