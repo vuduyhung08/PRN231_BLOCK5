@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DBfirst.Migrations
 {
-    public partial class Initproject : Migration
+    public partial class minh : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -300,6 +300,80 @@ namespace DBfirst.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Class",
+                columns: table => new
+                {
+                    ClassId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ClassName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    TeacherId = table.Column<int>(type: "int", nullable: false),
+                    SubjectId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Class", x => x.ClassId);
+                    table.ForeignKey(
+                        name: "FK__Class__SubjectId__3A81B327",
+                        column: x => x.SubjectId,
+                        principalTable: "Subject",
+                        principalColumn: "SubjectId");
+                    table.ForeignKey(
+                        name: "FK__Class__TeacherId__398D8EEE",
+                        column: x => x.TeacherId,
+                        principalTable: "Teacher",
+                        principalColumn: "TeacherId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ClassStudent",
+                columns: table => new
+                {
+                    ClassId = table.Column<int>(type: "int", nullable: false),
+                    StudentId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__ClassStu__48357579D7EF40EA", x => new { x.ClassId, x.StudentId });
+                    table.ForeignKey(
+                        name: "FK__ClassStud__Class__3D5E1FD2",
+                        column: x => x.ClassId,
+                        principalTable: "Class",
+                        principalColumn: "ClassId");
+                    table.ForeignKey(
+                        name: "FK__ClassStud__Stude__3E52440B",
+                        column: x => x.StudentId,
+                        principalTable: "Student",
+                        principalColumn: "StudentId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Feedback",
+                columns: table => new
+                {
+                    FeedbackId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StudentId = table.Column<int>(type: "int", nullable: false),
+                    ClassId = table.Column<int>(type: "int", nullable: false),
+                    Rating = table.Column<int>(type: "int", nullable: true),
+                    FeedbackText = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "(getdate())")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Feedback", x => x.FeedbackId);
+                    table.ForeignKey(
+                        name: "FK__Feedback__ClassI__59063A47",
+                        column: x => x.ClassId,
+                        principalTable: "Class",
+                        principalColumn: "ClassId");
+                    table.ForeignKey(
+                        name: "FK__Feedback__Studen__5812160E",
+                        column: x => x.StudentId,
+                        principalTable: "Student",
+                        principalColumn: "StudentId");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -340,8 +414,33 @@ namespace DBfirst.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Class_SubjectId",
+                table: "Class",
+                column: "SubjectId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Class_TeacherId",
+                table: "Class",
+                column: "TeacherId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ClassStudent_StudentId",
+                table: "ClassStudent",
+                column: "StudentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Evaluation_StudentId",
                 table: "Evaluation",
+                column: "StudentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Feedback_ClassId",
+                table: "Feedback",
+                column: "ClassId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Feedback_StudentId",
+                table: "Feedback",
                 column: "StudentId");
 
             migrationBuilder.CreateIndex(
@@ -388,7 +487,13 @@ namespace DBfirst.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "ClassStudent");
+
+            migrationBuilder.DropTable(
                 name: "Evaluation");
+
+            migrationBuilder.DropTable(
+                name: "Feedback");
 
             migrationBuilder.DropTable(
                 name: "RefreshTokens");
@@ -400,19 +505,22 @@ namespace DBfirst.Migrations
                 name: "StudentSubjects");
 
             migrationBuilder.DropTable(
-                name: "Teacher");
+                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetRoles");
+                name: "Class");
 
             migrationBuilder.DropTable(
                 name: "Student");
 
             migrationBuilder.DropTable(
-                name: "Subject");
+                name: "Teacher");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Subject");
         }
     }
 }
