@@ -53,7 +53,20 @@ namespace Front_end.Pages
 
                     if (authResult != null && authResult.Result)
                     {
-                        return RedirectToPage("/Index"); 
+                        if (!string.IsNullOrEmpty(authResult.Token))
+                        {
+                            var cookieOptions = new CookieOptions
+                            {
+                                HttpOnly = false, 
+                                Secure = false,    
+                                Expires = DateTimeOffset.UtcNow.AddDays(1),  
+                                SameSite = SameSiteMode.Strict               
+                            };
+
+                            HttpContext.Response.Cookies.Append("JwtToken", authResult.Token, cookieOptions);
+                        }
+
+                        return RedirectToPage("/Index");
                     }
                     else
                     {
@@ -62,7 +75,7 @@ namespace Front_end.Pages
                 }
                 else
                 {
-                    Errors = new List<string> { "Password must include a uppercase letter, a normal letter, a special letter, a number and must lenght more than 6" };
+                    Errors = new List<string> { "Password must include an uppercase letter, a lowercase letter, a special character, a number, and must be longer than 6 characters." };
                 }
             }
             return Page();
