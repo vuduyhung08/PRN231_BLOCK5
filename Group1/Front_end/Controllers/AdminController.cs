@@ -8,5 +8,19 @@ namespace Front_end.Controllers
         {
             return View();
         }
+
+        public IActionResult ManageActiveStatus()
+        {
+            return View();
+        }
+
+        public IActionResult ManageStudent()
+        {
+            return View();
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
     }
 }

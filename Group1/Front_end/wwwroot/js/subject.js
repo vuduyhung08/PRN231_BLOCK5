@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    const apiUrl = 'http://localhost:5224/api/MinhSubject';
+    const apiUrl = 'http://localhost:5224/api/Subject';
     let existingSubjects = [];
 
     function loadSubjects() {

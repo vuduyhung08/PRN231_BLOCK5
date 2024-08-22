@@ -1,0 +1,78 @@
+﻿﻿
+@model Front_end.Controllers.CreateEditEvaluationDTO
+
+<h2>Create Evaluation</h2>
+<link rel="stylesheet" href="~/css/register.css" />
+<form id="create-evaluation-form">
+    <div class="form-group">
+        <label>Grade</label>
+        <input name="Grade" placeholder="Input grade" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Subject</label>
+        <select name="Subject" class="form-control" asp-items="@(new SelectList(Model.Subjects, "SubjectName", "SubjectName"))"></select>
+    </div>
+    <div class="form-group">
+        <label>Student</label>
+        <select name="StudentId" class="form-control" asp-items="@(new SelectList(Model.Students, "StudentId", "Name"))"></select>
+
+    </div>
+    <div class="form-group">
+        <button id="submit-btn" type="button" class="btn btn-primary">Create</button>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>
+<div class="overlay" id="loading-overlay">
+    <div class="spinner"></div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#submit-btn").click(function (e) {
+            console.log("clicked");
+
+            const data = {
+                grade: $("input[name='Grade']").val(),
+                additionExplanation: $("select[name='Subject']").val(), 
+                studentId: $("select[name='StudentId']").val()
+            };
+
+            console.log(data.additionExplanation); 
+
+            $("#loading-overlay").css('display', 'flex');
+
+            $.ajax({
+                url: 'http://localhost:5224/api/Evaluations',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (response) {
+                    $("#loading-overlay").hide();
+                    window.location.href = 'http://localhost:5050/Evaluation';
+                },
+                error: function (xhr, status, error) {
+                    let errorMessage = 'An error occurred.';
+
+                    try {
+                        const responseJson = JSON.parse(xhr.responseText);
+                        if (responseJson.errors) {
+                            let formattedErrors = `Error Code: ${responseJson.status}\n`;
+                            for (const [key, messages] of Object.entries(responseJson.errors)) {
+                                formattedErrors += `${key}: \n${messages.join('\n')} \n`;
+                            }
+                            errorMessage = formattedErrors.trim();
+                        } else if (responseJson.title) {
+                            errorMessage = `${responseJson.title}: ${responseJson.detail || 'No details provided'}`;
+                        } else {
+                            errorMessage = `Error: ${xhr.responseText}`;
+                        }
+                    } catch (e) {
+                        errorMessage = `Error: ${xhr.responseText}`;
+                    }
+                    $("#loading-overlay").hide();
+                    alert(errorMessage);
+                }
+            });
+        });
+    });
+</script>
