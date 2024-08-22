@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {}
+    "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {
+    "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
         "projectName": "DBfirst",
-        "projectPath": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
-        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asus\\Desktop\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\obj\\",
+        "projectPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\DBfirst.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADMIN\\Documents\\GitHub\\PRN231_BLOCK5_GROUP1\\Group1\\DBfirst\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -145,7 +145,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
